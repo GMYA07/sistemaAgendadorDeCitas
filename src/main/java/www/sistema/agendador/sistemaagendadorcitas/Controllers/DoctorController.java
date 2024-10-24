@@ -20,7 +20,7 @@ public class DoctorController {
             try{
                 FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
                 Stage nuevoStage = new Stage();
-                Scene form = new Scene(indexDoctor.load(),824,434);
+                Scene form = new Scene(indexDoctor.load(),949,526);
                 /*ocuapmos el argumento stage para preparar y ejecutar el form*/
                 nuevoStage.setTitle("Sistema Agendador de Citas");
                 nuevoStage.setResizable(false);

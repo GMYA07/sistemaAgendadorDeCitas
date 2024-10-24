@@ -1,0 +1,17 @@
+#vistaCompleta{
+    -fx-background-color:#022b3a;
+}
+#contenedorMenu{
+    -fx-background-color:#1f7a8c;
+}
+
+.tituloForm{
+    -fx-text-fill: #BFDBF7;
+    -fx-font-size:30px;
+}
+
+.targetas{
+    -fx-background-color:#bfdbf7;
+    -fx-background-radius: 15;     /* Redondeo del fondo */
+    -fx-border-radius: 15;         /* Redondeo del borde */
+}
