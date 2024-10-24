@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.DoctorController"
-            prefHeight="800.0" prefWidth="1000.0">
-
+<AnchorPane id="vistaLogin" prefHeight="431.0" prefWidth="821.0" stylesheets="@../css/styleLogin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.DoctorController">
+   <children>
+      <Label id="tituloLabel2" layoutX="57.0" layoutY="47.0" prefHeight="49.0" prefWidth="180.0" stylesheets="@../css/styleLogin.css" text="Clinica Salvadoreña" />
+      <Label id="tituloLabel" layoutX="46.0" layoutY="53.0" prefHeight="118.0" prefWidth="397.0" stylesheets="@../css/styleLogin.css" text="Inicio de sesion" />
+      <Button fx:id="iniciarSesionDoctor" onAction="#iniciarSesionDoc" layoutX="50.0" layoutY="363.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="141.0" styleClass="botonForm" stylesheets="@../css/styleLogin.css" text="Iniciar Sesion" />
+      <Label layoutX="57.0" layoutY="171.0" prefHeight="45.0" prefWidth="141.0" styleClass="labelForm" stylesheets="@../css/styleLogin.css" text="Correo" />
+      <Label layoutX="57.0" layoutY="260.0" prefHeight="45.0" prefWidth="201.0" styleClass="labelForm" stylesheets="@../css/styleLogin.css" text="Contraseña" />
+      <TextField layoutX="50.0" layoutY="222.0" prefHeight="31.0" prefWidth="335.0" styleClass="inputForm" stylesheets="@../css/styleLogin.css" />
+      <TextField layoutX="50.0" layoutY="305.0" prefHeight="31.0" prefWidth="335.0" styleClass="inputForm" stylesheets="@../css/styleLogin.css" />
+      <ImageView fitHeight="315.0" fitWidth="305.0" layoutX="469.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/calendario1.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>

@@ -14,9 +14,10 @@ public class sistemAgendadorApp extends Application{
         /*este es un objeto para crear el formulario*/
         FXMLLoader login = new FXMLLoader(sistemAgendadorApp.class.getResource("views/login.fxml"));
         /*aqui le damos los tamaños*/
-        Scene form = new Scene(login.load(),300,300);
+        Scene form = new Scene(login.load(),824,434);
         /*ocuapmos el argumento stage para preparar y ejecutar el form*/
         stage.setTitle("Sistema Agendador de Citas");
+        stage.setResizable(false);
         stage.setScene(form);
         stage.show();
     }
