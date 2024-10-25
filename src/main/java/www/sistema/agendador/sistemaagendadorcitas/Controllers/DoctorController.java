@@ -1,5 +1,6 @@
 package www.sistema.agendador.sistemaagendadorcitas.Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,10 +14,10 @@ import java.util.Objects;
 public class DoctorController {
 
     @FXML
-    private Button iniciarSesionDoctor; // Declaración del botón
+    private Button botonIniciarSesion; // Declaración del botón
 
     @FXML
-    public void iniciarSesionDoc(){
+    public void iniciarSesion(ActionEvent event){
             try{
                 FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
                 Stage nuevoStage = new Stage();
@@ -28,7 +29,7 @@ public class DoctorController {
                 nuevoStage.show();
 
                 // Cerrar el formulario actual
-                Stage actualStage = (Stage) iniciarSesionDoctor.getScene().getWindow(); // Obtener el Stage actual
+                Stage actualStage = (Stage) botonIniciarSesion.getScene().getWindow(); // Obtener el Stage actual
                 actualStage.close(); // Cerrar la ventana actual
 
             }catch (Exception e){

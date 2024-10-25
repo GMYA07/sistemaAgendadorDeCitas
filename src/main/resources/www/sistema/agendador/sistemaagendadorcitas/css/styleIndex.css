@@ -14,4 +14,8 @@
     -fx-background-color:#bfdbf7;
     -fx-background-radius: 15;     /* Redondeo del fondo */
     -fx-border-radius: 15;         /* Redondeo del borde */
+    -fx-text-fill: #022b3a;
+    -fx-font-size:15px;
+    -fx-alignment: center; /* Centra el contenido */
+    -fx-text-alignment: center; /* Centra el texto */
 }
