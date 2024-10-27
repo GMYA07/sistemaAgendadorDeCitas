@@ -15,10 +15,19 @@ public class DoctorController {
 
     @FXML
     private Button botonIniciarSesion; // Declaración del botón
+    @FXML
+    private Button botonRegresar;
+    @FXML
+    private Button botonAgendar;
+    @FXML
+    private Button botonRevisarConsulta;
+    @FXML
+    private Button botonRegistrarCita;
 
     @FXML
-    public void iniciarSesion(ActionEvent event){
-            try{
+    public void redireccionSistema(ActionEvent event){
+        try {
+            if (event.getSource() == botonIniciarSesion){
                 FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
                 Stage nuevoStage = new Stage();
                 Scene form = new Scene(indexDoctor.load(),949,526);
@@ -32,9 +41,40 @@ public class DoctorController {
                 Stage actualStage = (Stage) botonIniciarSesion.getScene().getWindow(); // Obtener el Stage actual
                 actualStage.close(); // Cerrar la ventana actual
 
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+            } else if (event.getSource() == botonAgendar){
+                FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/agendarCitas.fxml"));
+                Stage nuevoStage = new Stage();
+                Scene form = new Scene(indexDoctor.load(),991,571);
+                /*ocuapmos el argumento stage para preparar y ejecutar el form*/
+                nuevoStage.setTitle("Sistema Agendador de Citas");
+                nuevoStage.setResizable(false);
+                nuevoStage.setScene(form);
+                nuevoStage.show();
 
+                // Cerrar el formulario actual
+                Stage actualStage = (Stage) botonAgendar.getScene().getWindow(); // Obtener el Stage actual
+                actualStage.close(); // Cerrar la ventana actual
+
+            } else if (event.getSource() == botonRegistrarCita) {
+                
+            } else if (event.getSource() == botonRevisarConsulta) {
+                
+            }else if (event.getSource() == botonRegresar){
+                FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
+                Stage nuevoStage = new Stage();
+                Scene form = new Scene(indexDoctor.load(),949,526);
+                /*ocuapmos el argumento stage para preparar y ejecutar el form*/
+                nuevoStage.setTitle("Sistema Agendador de Citas");
+                nuevoStage.setResizable(false);
+                nuevoStage.setScene(form);
+                nuevoStage.show();
+
+                // Cerrar el formulario actual
+                Stage actualStage = (Stage) botonRegresar.getScene().getWindow(); // Obtener el Stage actual
+                actualStage.close(); // Cerrar la ventana actual
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

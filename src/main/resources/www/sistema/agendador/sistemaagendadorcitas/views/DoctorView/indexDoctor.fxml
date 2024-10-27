@@ -17,7 +17,7 @@
       </Pane>
       <Pane layoutX="55.0" layoutY="183.0" prefHeight="282.0" prefWidth="236.0" styleClass="targetas" stylesheets="@../../css/styleIndex.css">
          <children>
-            <Button layoutX="66.0" layoutY="235.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="105.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Ir" />
+            <Button fx:id="botonRegistrarCita" layoutX="66.0" layoutY="235.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="33.0" prefWidth="105.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Ir" />
             <Label layoutX="57.0" layoutY="185.0" prefHeight="33.0" prefWidth="134.0" styleClass="targetas" stylesheets="@../../css/styleIndex.css" text="Registro Consultas" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="44.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -28,7 +28,7 @@
       </Pane>
       <Pane layoutX="357.0" layoutY="183.0" prefHeight="282.0" prefWidth="236.0" styleClass="targetas" stylesheets="@../../css/styleIndex.css">
          <children>
-            <Button layoutX="66.0" layoutY="235.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="105.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Ir" />
+            <Button fx:id="botonRevisarConsulta" layoutX="66.0" layoutY="235.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="33.0" prefWidth="105.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Ir" />
             <Label layoutX="44.0" layoutY="184.0" prefHeight="33.0" prefWidth="150.0" styleClass="targetas" stylesheets="@../../css/styleIndex.css" text="Consultas Pedientes" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -39,7 +39,7 @@
       </Pane>
       <Pane layoutX="655.0" layoutY="183.0" prefHeight="282.0" prefWidth="236.0" styleClass="targetas" stylesheets="@../../css/styleIndex.css">
          <children>
-            <Button layoutX="66.0" layoutY="235.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="105.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Ir" />
+            <Button fx:id="botonAgendar" layoutX="66.0" layoutY="235.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="33.0" prefWidth="105.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Ir" userData="AgendarCita" />
             <Label layoutX="105.0" layoutY="178.0" />
             <Label layoutX="66.0" layoutY="187.0" prefHeight="33.0" prefWidth="124.0" styleClass="targetas" stylesheets="@../../css/styleIndex.css" text="Agendar Cita" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="53.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">

@@ -1,0 +1,36 @@
+#vistaCompleta{
+    -fx-background-color:#022b3a;
+}
+
+#menuTop{
+    -fx-background-color:#1f7a8c;
+    -fx-text-fill: #bfdbf7;
+    -fx-font-size:25px;
+}
+
+#contenedorFormAgendar{
+    -fx-background-color:#bfdbf7;
+    -fx-background-radius: 15;     /* Redondeo del fondo */
+    -fx-border-radius: 15;         /* Redondeo del borde */
+    -fx-text-fill: #022b3a;
+    -fx-font-size:20px;
+    -fx-alignment: center; /* Centra el contenido */
+    -fx-text-alignment: center; /* Centra el texto */
+}
+
+.inputsForm{
+    -fx-background-color: #d9d9d9;
+}
+
+.botonForm{
+    -fx-text-fill: white;
+    -fx-background-color:#1f7a8c;
+    -fx-cursor: hand;
+
+}
+
+.botonRegresar{
+    -fx-background-color:#022b3a;
+    -fx-text-fill: #bfdbf7;
+    -fx-font-size:15px;
+}
