@@ -13,52 +13,58 @@
             <Button fx:id="botonRegresar" layoutX="842.0" layoutY="18.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="119.0" styleClass="botonRegresar" stylesheets="@../../css/styleAgendarCita.css" text="regresar " />
          </children>
       </Pane>
-      <Pane layoutX="48.0" layoutY="85.0" prefHeight="282.0" prefWidth="901.0">
+      <Pane layoutX="36.0" layoutY="85.0" prefHeight="282.0" prefWidth="912.0">
          <children>
-            <Pane id="contenedorFormAgendar" layoutX="43.0" layoutY="27.0" prefHeight="228.0" prefWidth="226.0" stylesheets="@../../css/styleAgendarCita.css">
+            <Pane layoutX="49.0" layoutY="48.0" prefHeight="187.0" prefWidth="257.0" styleClass="targetas" stylesheets="@../../css/styleConsultaPendiente.css">
                <children>
-                  <Label layoutX="25.0" layoutY="14.0" prefHeight="45.0" prefWidth="119.0" text="Dui Paciente:" />
-                  <Label layoutX="14.0" layoutY="59.0" prefHeight="45.0" prefWidth="175.0" text="Nombre paciente: " />
-                  <Button layoutX="75.0" layoutY="175.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Agendar" />
+                  <Label layoutX="14.0" layoutY="20.0" prefHeight="45.0" prefWidth="248.0" text="Paciente: Manolo Lama" />
+                  <Label layoutX="14.0" layoutY="59.0" prefHeight="31.0" prefWidth="248.0" text="Fecha Cita: 01/27/2024" />
+                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Agendar" />
+                  <Label layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="248.0" text="Hora Cita: 10:00 AM " />
                </children>
             </Pane>
-            <Pane id="contenedorFormAgendar" layoutX="338.0" layoutY="27.0" prefHeight="228.0" prefWidth="226.0" stylesheets="@../../css/styleAgendarCita.css">
+            <Pane layoutX="353.0" layoutY="48.0" prefHeight="187.0" prefWidth="257.0" styleClass="targetas" stylesheets="@../../css/styleConsultaPendiente.css">
                <children>
-                  <Label layoutX="25.0" layoutY="14.0" prefHeight="45.0" prefWidth="119.0" text="Dui Paciente:" />
-                  <Label layoutX="14.0" layoutY="59.0" prefHeight="45.0" prefWidth="175.0" text="Nombre paciente: " />
-                  <Button layoutX="75.0" layoutY="175.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Agendar" />
+                  <Label layoutX="14.0" layoutY="20.0" prefHeight="45.0" prefWidth="248.0" text="Paciente: Manolo Lama" />
+                  <Label layoutX="14.0" layoutY="59.0" prefHeight="31.0" prefWidth="248.0" text="Fecha Cita: 01/27/2024" />
+                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Agendar" />
+                  <Label layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="248.0" text="Hora Cita: 10:00 AM " />
                </children>
             </Pane>
-            <Pane id="contenedorFormAgendar" layoutX="636.0" layoutY="27.0" prefHeight="228.0" prefWidth="226.0" stylesheets="@../../css/styleAgendarCita.css">
+            <Pane layoutX="641.0" layoutY="48.0" prefHeight="187.0" prefWidth="257.0" styleClass="targetas" stylesheets="@../../css/styleConsultaPendiente.css">
                <children>
-                  <Label layoutX="25.0" layoutY="14.0" prefHeight="45.0" prefWidth="119.0" text="Dui Paciente:" />
-                  <Label layoutX="14.0" layoutY="59.0" prefHeight="45.0" prefWidth="175.0" text="Nombre paciente: " />
-                  <Button layoutX="75.0" layoutY="175.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Agendar" />
+                  <Label layoutX="14.0" layoutY="20.0" prefHeight="45.0" prefWidth="248.0" text="Paciente: Manolo Lama" />
+                  <Label layoutX="14.0" layoutY="59.0" prefHeight="31.0" prefWidth="248.0" text="Fecha Cita: 01/27/2024" />
+                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Agendar" />
+                  <Label layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="248.0" text="Hora Cita: 10:00 AM " />
                </children>
             </Pane>
          </children>
       </Pane>
-      <Pane layoutX="48.0" layoutY="361.0" prefHeight="282.0" prefWidth="901.0">
+      <Pane layoutX="32.0" layoutY="337.0" prefHeight="282.0" prefWidth="932.0">
          <children>
-            <Pane id="contenedorFormAgendar" layoutX="43.0" layoutY="27.0" prefHeight="228.0" prefWidth="226.0" stylesheets="@../../css/styleAgendarCita.css">
+            <Pane layoutX="49.0" layoutY="48.0" prefHeight="187.0" prefWidth="257.0" styleClass="targetas" stylesheets="@../../css/styleConsultaPendiente.css">
                <children>
-                  <Label layoutX="25.0" layoutY="14.0" prefHeight="45.0" prefWidth="119.0" text="Dui Paciente:" />
-                  <Label layoutX="14.0" layoutY="59.0" prefHeight="45.0" prefWidth="175.0" text="Nombre paciente: " />
-                  <Button layoutX="75.0" layoutY="175.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Agendar" />
+                  <Label layoutX="14.0" layoutY="20.0" prefHeight="45.0" prefWidth="248.0" text="Paciente: Manolo Lama" />
+                  <Label layoutX="14.0" layoutY="59.0" prefHeight="31.0" prefWidth="248.0" text="Fecha Cita: 01/27/2024" />
+                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Agendar" />
+                  <Label layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="248.0" text="Hora Cita: 10:00 AM " />
                </children>
             </Pane>
-            <Pane id="contenedorFormAgendar" layoutX="338.0" layoutY="27.0" prefHeight="228.0" prefWidth="226.0" stylesheets="@../../css/styleAgendarCita.css">
+            <Pane layoutX="361.0" layoutY="48.0" prefHeight="187.0" prefWidth="257.0" styleClass="targetas" stylesheets="@../../css/styleConsultaPendiente.css">
                <children>
-                  <Label layoutX="25.0" layoutY="14.0" prefHeight="45.0" prefWidth="119.0" text="Dui Paciente:" />
-                  <Label layoutX="14.0" layoutY="59.0" prefHeight="45.0" prefWidth="175.0" text="Nombre paciente: " />
-                  <Button layoutX="75.0" layoutY="175.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Agendar" />
+                  <Label layoutX="14.0" layoutY="20.0" prefHeight="45.0" prefWidth="248.0" text="Paciente: Manolo Lama" />
+                  <Label layoutX="14.0" layoutY="59.0" prefHeight="31.0" prefWidth="248.0" text="Fecha Cita: 01/27/2024" />
+                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Agendar" />
+                  <Label layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="248.0" text="Hora Cita: 10:00 AM " />
                </children>
             </Pane>
-            <Pane id="contenedorFormAgendar" layoutX="636.0" layoutY="27.0" prefHeight="228.0" prefWidth="226.0" stylesheets="@../../css/styleAgendarCita.css">
+            <Pane layoutX="651.0" layoutY="48.0" prefHeight="187.0" prefWidth="257.0" styleClass="targetas" stylesheets="@../../css/styleConsultaPendiente.css">
                <children>
-                  <Label layoutX="25.0" layoutY="14.0" prefHeight="45.0" prefWidth="119.0" text="Dui Paciente:" />
-                  <Label layoutX="14.0" layoutY="59.0" prefHeight="45.0" prefWidth="175.0" text="Nombre paciente: " />
-                  <Button layoutX="75.0" layoutY="175.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Agendar" />
+                  <Label layoutX="14.0" layoutY="20.0" prefHeight="45.0" prefWidth="248.0" text="Paciente: Manolo Lama" />
+                  <Label layoutX="14.0" layoutY="59.0" prefHeight="31.0" prefWidth="248.0" text="Fecha Cita: 01/27/2024" />
+                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Agendar" />
+                  <Label layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="248.0" text="Hora Cita: 10:00 AM " />
                </children>
             </Pane>
          </children>

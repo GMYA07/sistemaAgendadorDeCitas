@@ -1,3 +1,7 @@
+#viewConsultaActiva{
+     -fx-background-color:#022b3a;
+}
+
 .targetas{
     -fx-background-color:#bfdbf7;
     -fx-background-radius: 15;     /* Redondeo del fondo */
@@ -8,10 +12,7 @@
     -fx-text-alignment: center; /* Centra el texto */
 }
 
-.botonForm{
-    -fx-text-fill: white;
-    -fx-background-color:#022b3a;
-    -fx-cursor: hand;
-    -fx-background-radius: 15;     /* Redondeo del fondo */
-    -fx-border-radius: 15;
+.titulo{
+     -fx-text-fill: #022b3a;
+     -fx-font-size:30px;
 }
