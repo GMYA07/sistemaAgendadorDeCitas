@@ -15,6 +15,10 @@ public class AdminController {
     private Button botonAdministrarDoctores;
     @FXML
     private Button botonRegresar;
+    @FXML
+    private Button botonFormPaciente;
+    @FXML
+    private Button botonFormDoctores;
 
     @FXML
     public void redireccionSistema(ActionEvent event){
@@ -52,6 +56,34 @@ public class AdminController {
                 FXMLLoader regresar = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/indexAdmin.fxml"));
                 Stage nuevoStage = new Stage();
                 Scene form = new Scene(regresar.load(),845,560);
+                /*ocuapmos el argumento stage para preparar y ejecutar el form*/
+                nuevoStage.setTitle("Sistema Agendador de Citas");
+                nuevoStage.setResizable(false);
+                nuevoStage.setScene(form);
+                nuevoStage.show();
+
+                // Cerrar el formulario actual
+                Stage actualStage = (Stage) botonRegresar.getScene().getWindow(); // Obtener el Stage actual
+                actualStage.close(); // Cerrar la ventana actual
+
+            }else if (event.getSource() == botonFormPaciente){
+                FXMLLoader formAgregarPaciente = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/formAgregarPaciente.fxml"));
+                Stage nuevoStage = new Stage();
+                Scene form = new Scene(formAgregarPaciente.load(),966,547);
+                /*ocuapmos el argumento stage para preparar y ejecutar el form*/
+                nuevoStage.setTitle("Sistema Agendador de Citas");
+                nuevoStage.setResizable(false);
+                nuevoStage.setScene(form);
+                nuevoStage.show();
+
+                // Cerrar el formulario actual
+                Stage actualStage = (Stage) botonRegresar.getScene().getWindow(); // Obtener el Stage actual
+                actualStage.close(); // Cerrar la ventana actual
+
+            } else if (event.getSource() == botonFormDoctores) {
+                FXMLLoader formAgregarDoc = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/formAgregarDoctor.fxml"));
+                Stage nuevoStage = new Stage();
+                Scene form = new Scene(formAgregarDoc.load(),956,537);
                 /*ocuapmos el argumento stage para preparar y ejecutar el form*/
                 nuevoStage.setTitle("Sistema Agendador de Citas");
                 nuevoStage.setResizable(false);

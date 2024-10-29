@@ -23,6 +23,6 @@
             <TableColumn prefWidth="118.0" text="Column X" />
         </columns>
       </TableView>
-      <Button fx:id="botonAdministrarDoctores" layoutX="57.0" layoutY="538.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="156.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Agregar Paciente" />
+      <Button fx:id="botonFormPaciente" layoutX="57.0" layoutY="538.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="156.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Agregar Paciente" />
    </children>
 </AnchorPane>

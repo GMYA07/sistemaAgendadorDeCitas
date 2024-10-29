@@ -24,7 +24,7 @@
                   <TableColumn prefWidth="118.0" text="Column X" />
                </columns>
             </TableView>
-            <Button fx:id="botonAdministrarDoctores" layoutX="72.0" layoutY="505.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="156.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Agregar Doctor" />
+            <Button fx:id="botonFormDoctores" layoutX="72.0" layoutY="505.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="156.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Agregar Doctor" />
          </children>
       </AnchorPane>
    </children>
