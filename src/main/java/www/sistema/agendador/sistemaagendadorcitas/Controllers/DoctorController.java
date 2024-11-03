@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import www.sistema.agendador.sistemaagendadorcitas.sistemAgendadorApp;
-
+import www.sistema.agendador.sistemaagendadorcitas.src.Validaciones;
 import java.util.Objects;
 
 public class DoctorController {
@@ -28,6 +28,8 @@ public class DoctorController {
     private Button botonRevisarConsulta;
     @FXML
     private Button botonRegistrarCita;
+
+    Validaciones validar = new Validaciones();
 
     @FXML
     public void redireccionSistema(ActionEvent event){
@@ -49,18 +51,20 @@ public class DoctorController {
                     actualStage.close(); // Cerrar la ventana actual
 
                 }else {
-                    FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
-                    Stage nuevoStage = new Stage();
-                    Scene form = new Scene(indexDoctor.load(),949,526);
-                    /*ocuapmos el argumento stage para preparar y ejecutar el form*/
-                    nuevoStage.setTitle("Sistema Agendador de Citas");
-                    nuevoStage.setResizable(false);
-                    nuevoStage.setScene(form);
-                    nuevoStage.show();
+                    if (validar.validarLogin(correoUsuarioIniciarSesion.getText(),passUsuarioIniciarSesion.getText())){
+                        FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
+                        Stage nuevoStage = new Stage();
+                        Scene form = new Scene(indexDoctor.load(),949,526);
+                        /*ocuapmos el argumento stage para preparar y ejecutar el form*/
+                        nuevoStage.setTitle("Sistema Agendador de Citas");
+                        nuevoStage.setResizable(false);
+                        nuevoStage.setScene(form);
+                        nuevoStage.show();
 
-                    // Cerrar el formulario actual
-                    Stage actualStage = (Stage) botonIniciarSesion.getScene().getWindow(); // Obtener el Stage actual
-                    actualStage.close(); // Cerrar la ventana actual
+                        // Cerrar el formulario actual
+                        Stage actualStage = (Stage) botonIniciarSesion.getScene().getWindow(); // Obtener el Stage actual
+                        actualStage.close(); // Cerrar la ventana actual
+                    }
                 }
 
             } else if (event.getSource() == botonAgendar){
