@@ -3,9 +3,14 @@ package www.sistema.agendador.sistemaagendadorcitas;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import www.sistema.agendador.sistemaagendadorcitas.src.Alertas;
 
 import java.io.IOException;
+import java.util.Optional;
+
 public class sistemAgendadorApp extends Application{
 
     @Override
@@ -19,6 +24,7 @@ public class sistemAgendadorApp extends Application{
         stage.setTitle("Sistema Agendador de Citas");
         stage.setResizable(false);
         stage.setScene(form);
+        Alertas.confirmacionCierre(stage);
         stage.show();
     }
 

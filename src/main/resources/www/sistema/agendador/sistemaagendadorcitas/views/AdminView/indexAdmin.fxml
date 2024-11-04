@@ -12,6 +12,7 @@
       <Pane id="contenedorMenu" prefHeight="73.0" prefWidth="845.0" stylesheets="@../../css/styleIndex.css">
          <children>
             <Label layoutX="266.0" prefHeight="73.0" prefWidth="417.0" styleClass="tituloForm" stylesheets="@../../css/styleIndex.css" text="Bienvenido Administrador" />
+            <Button fx:id="botonCerrarSesion" layoutX="701.0" layoutY="21.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="119.0" styleClass="botonRegresar" stylesheets="@../../css/styleAgendarCita.css" text="Cerrar Sesion" />
          </children>
       </Pane>
       <Pane layoutX="130.0" layoutY="178.0" prefHeight="282.0" prefWidth="236.0" styleClass="targetas" stylesheets="@../../css/styleIndex.css">

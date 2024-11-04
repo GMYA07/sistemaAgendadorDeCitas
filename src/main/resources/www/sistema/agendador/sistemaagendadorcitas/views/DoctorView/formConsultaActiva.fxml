@@ -27,8 +27,8 @@
       <Pane layoutX="64.0" layoutY="365.0" prefHeight="255.0" prefWidth="413.0" styleClass="targetas" stylesheets="@../../css/styleConsultaActiva.css">
          <children>
             <Label layoutX="20.0" layoutY="22.0" prefHeight="45.0" prefWidth="283.0" styleClass="titulo" stylesheets="@../../css/styleConsultaActiva.css" text="Descripcion Cita" />
-            <TextArea layoutX="20.0" layoutY="89.0" prefHeight="97.0" prefWidth="365.0" />
-            <Button layoutX="139.0" layoutY="210.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Enviar" />
+            <TextArea fx:id="descripcionCita" layoutX="20.0" layoutY="89.0" prefHeight="97.0" prefWidth="365.0" />
+            <Button layoutX="139.0" layoutY="210.0" mnemonicParsing="false" onAction="#finalizarCita" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Enviar" />
          </children>
       </Pane>
       <ImageView fitHeight="222.0" fitWidth="248.0" layoutX="646.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">

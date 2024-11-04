@@ -19,7 +19,7 @@
                <children>
                   <Label layoutX="14.0" layoutY="20.0" prefHeight="45.0" prefWidth="248.0" text="Paciente: Manolo Lama" />
                   <Label layoutX="14.0" layoutY="59.0" prefHeight="31.0" prefWidth="248.0" text="Fecha Cita: 01/27/2024" />
-                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Comenzar Cita" />
+                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" onAction="#redireccionFormCitaActiva" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Comenzar Cita" />
                   <Label layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="248.0" text="Hora Cita: 10:00 AM " />
                </children>
             </Pane>
@@ -28,14 +28,14 @@
                   <Label layoutX="14.0" layoutY="20.0" prefHeight="45.0" prefWidth="248.0" text="Paciente: Manolo Lama" />
                   <Label layoutX="14.0" layoutY="59.0" prefHeight="31.0" prefWidth="248.0" text="Fecha Cita: 01/27/2024" />
                   <Label layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="248.0" text="Hora Cita: 10:00 AM " />
-                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Comenzar Cita" />
+                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" onAction="#redireccionFormCitaActiva" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Comenzar Cita" />
                </children>
             </Pane>
             <Pane layoutX="641.0" layoutY="48.0" prefHeight="187.0" prefWidth="257.0" styleClass="targetas" stylesheets="@../../css/styleConsultaPendiente.css">
                <children>
                   <Label layoutX="14.0" layoutY="20.0" prefHeight="45.0" prefWidth="248.0" text="Paciente: Manolo Lama" />
                   <Label layoutX="14.0" layoutY="59.0" prefHeight="31.0" prefWidth="248.0" text="Fecha Cita: 01/27/2024" />
-                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Comenzar Cita" />
+                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" onAction="#redireccionFormCitaActiva" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Comenzar Cita" />
                   <Label layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="248.0" text="Hora Cita: 10:00 AM " />
                </children>
             </Pane>
@@ -47,7 +47,7 @@
                <children>
                   <Label layoutX="14.0" layoutY="20.0" prefHeight="45.0" prefWidth="248.0" text="Paciente: Manolo Lama" />
                   <Label layoutX="14.0" layoutY="59.0" prefHeight="31.0" prefWidth="248.0" text="Fecha Cita: 01/27/2024" />
-                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Comenzar Cita" />
+                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" onAction="#redireccionFormCitaActiva" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Comenzar Cita" />
                   <Label layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="248.0" text="Hora Cita: 10:00 AM " />
                </children>
             </Pane>
@@ -55,7 +55,7 @@
                <children>
                   <Label layoutX="14.0" layoutY="20.0" prefHeight="45.0" prefWidth="248.0" text="Paciente: Manolo Lama" />
                   <Label layoutX="14.0" layoutY="59.0" prefHeight="31.0" prefWidth="248.0" text="Fecha Cita: 01/27/2024" />
-                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Comenzar Cita" />
+                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" onAction="#redireccionFormCitaActiva" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Comenzar Cita" />
                   <Label layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="248.0" text="Hora Cita: 10:00 AM " />
                </children>
             </Pane>
@@ -63,7 +63,7 @@
                <children>
                   <Label layoutX="14.0" layoutY="20.0" prefHeight="45.0" prefWidth="248.0" text="Paciente: Manolo Lama" />
                   <Label layoutX="14.0" layoutY="59.0" prefHeight="31.0" prefWidth="248.0" text="Fecha Cita: 01/27/2024" />
-                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Comenzar Cita" />
+                  <Button layoutX="65.0" layoutY="142.0" mnemonicParsing="false" onAction="#redireccionFormCitaActiva" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleConsultaPendiente.css" text="Comenzar Cita" />
                   <Label layoutX="14.0" layoutY="89.0" prefHeight="31.0" prefWidth="248.0" text="Hora Cita: 10:00 AM " />
                </children>
             </Pane>
