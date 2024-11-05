@@ -154,10 +154,24 @@ public class AdminController {
         }
     }
     @FXML
+    public void modificarDoctor(ActionEvent event){
+        Alertas alerta = new Alertas();
+        if (validar.validarFormAgregarDoctor(inputDui.getText(),inputTelefono.getText(),inputFecha.getValue(),inputNombres.getText(),inputApellidos.getText(),inputCorreo.getText(),inputPass.getText(),selectProcencia.getValue(),inputEspecialidad.getText())){
+            alerta.alertaCorrecto("INFORMATION","Correcto al Modificar","El doctor ha sido modificado!");
+        }
+    }
+    @FXML
     public void agregarPaciente(ActionEvent event){
         Alertas alerta = new Alertas();
         if (validar.validarFormAgregarPaciente(inputDui.getText(),inputTelefono.getText(),inputFecha.getValue(),inputNombres.getText(),inputApellidos.getText(),inputCorreo.getText(),inputPass.getText(),selectProcencia.getValue(),inputDescripcionPaciente.getText())){
             alerta.alertaCorrecto("INFORMATION","Correcto al Agregar","El paciente ha sido registrado!");
+        }
+    }
+    @FXML
+    public void modificarPaciente(ActionEvent event){
+        Alertas alerta = new Alertas();
+        if (validar.validarFormAgregarPaciente(inputDui.getText(),inputTelefono.getText(),inputFecha.getValue(),inputNombres.getText(),inputApellidos.getText(),inputCorreo.getText(),inputPass.getText(),selectProcencia.getValue(),inputDescripcionPaciente.getText())){
+            alerta.alertaCorrecto("INFORMATION","Correcto al Modificar","El paciente ha sido modificado!");
         }
     }
 }

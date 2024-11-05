@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.AdminController">
    <children>
@@ -22,25 +24,34 @@
             <Pane layoutX="45.0" layoutY="126.0" prefHeight="335.0" prefWidth="884.0" styleClass="targetas" stylesheets="@../../css/styleConsultaActiva.css">
                <children>
                   <Label layoutX="327.0" layoutY="14.0" prefHeight="45.0" prefWidth="231.0" styleClass="titulo" stylesheets="@../../css/styleConsultaActiva.css" text="Modificar Doctor" />
-                  <Button layoutX="360.0" layoutY="283.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Modificar" />
+                  <Button layoutX="360.0" layoutY="283.0" mnemonicParsing="false" onAction="#modificarDoctor" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Modificar" />
                   <Label layoutX="38.0" layoutY="88.0" prefHeight="21.0" prefWidth="88.0" text="Dui :" />
-                  <TextField layoutX="72.0" layoutY="83.0" prefHeight="31.0" prefWidth="202.0" />
                   <Label layoutX="301.0" layoutY="88.0" prefHeight="21.0" prefWidth="69.0" text="Telefono:" />
-                  <TextField layoutX="370.0" layoutY="83.0" prefHeight="31.0" prefWidth="202.0" />
                   <Label layoutX="584.0" layoutY="88.0" prefHeight="21.0" prefWidth="127.0" text="Fecha Nacimiento:" />
-                  <TextField layoutX="711.0" layoutY="83.0" prefHeight="31.0" prefWidth="147.0" />
                   <Label layoutX="38.0" layoutY="131.0" prefHeight="21.0" prefWidth="75.0" text="Nombres  :" />
-                  <TextField layoutX="113.0" layoutY="126.0" prefHeight="31.0" prefWidth="283.0" />
                   <Label layoutX="405.0" layoutY="131.0" prefHeight="21.0" prefWidth="82.0" text="Apellidos  :" />
-                  <TextField layoutX="487.0" layoutY="126.0" prefHeight="31.0" prefWidth="369.0" />
                   <Label layoutX="35.0" layoutY="181.0" prefHeight="21.0" prefWidth="75.0" text="Correo  :" />
-                  <TextField layoutX="113.0" layoutY="176.0" prefHeight="31.0" prefWidth="283.0" />
                   <Label layoutX="409.0" layoutY="181.0" prefHeight="21.0" prefWidth="94.0" text="Contraseña  :" />
-                  <PasswordField layoutX="510.0" layoutY="179.0" prefHeight="31.0" prefWidth="347.0" />
                   <Label layoutX="35.0" layoutY="231.0" prefHeight="21.0" prefWidth="94.0" text="Procedencia  :" />
-                  <ComboBox layoutX="135.0" layoutY="226.0" prefHeight="31.0" prefWidth="264.0" />
                   <Label layoutX="409.0" layoutY="231.0" prefHeight="21.0" prefWidth="94.0" text="Especialidad  :" />
-                  <PasswordField layoutX="510.0" layoutY="226.0" prefHeight="31.0" prefWidth="347.0" />
+                  <TextField fx:id="inputTelefono" layoutX="371.0" layoutY="88.0" prefHeight="31.0" prefWidth="202.0" />
+                  <TextField fx:id="inputNombres" layoutX="114.0" layoutY="131.0" prefHeight="31.0" prefWidth="283.0" />
+                  <TextField fx:id="inputApellidos" layoutX="488.0" layoutY="131.0" prefHeight="31.0" prefWidth="369.0" />
+                  <TextField fx:id="inputCorreo" layoutX="114.0" layoutY="181.0" prefHeight="31.0" prefWidth="283.0" />
+                  <PasswordField fx:id="inputPass" layoutX="511.0" layoutY="184.0" prefHeight="31.0" prefWidth="347.0" />
+                  <ComboBox fx:id="selectProcencia" layoutX="136.0" layoutY="231.0" prefHeight="31.0" prefWidth="264.0" promptText="Departamento, Ciudad">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="San Salvador, San Martin" />
+                           <String fx:value="San Miguel, San Miguel" />
+                           <String fx:value="Cabañas, Ilobasco" />
+                           <String fx:value="San Salvador, Ilopango" />
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
+                  <DatePicker fx:id="inputFecha" layoutX="712.0" layoutY="88.0" prefHeight="31.0" prefWidth="161.0" />
+                  <TextField fx:id="inputDui" layoutX="82.0" layoutY="83.0" prefHeight="31.0" prefWidth="202.0" />
+                  <TextField fx:id="inputEspecialidad" layoutX="511.0" layoutY="226.0" prefHeight="31.0" prefWidth="347.0" />
                </children>
             </Pane>
          </children>
