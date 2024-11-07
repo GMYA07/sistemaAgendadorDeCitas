@@ -1,6 +1,7 @@
 module www.sistema.agendador.sistemaagendadorcitas {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens www.sistema.agendador.sistemaagendadorcitas to javafx.fxml;

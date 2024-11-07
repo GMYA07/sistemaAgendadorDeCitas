@@ -1,5 +1,6 @@
 package www.sistema.agendador.sistemaagendadorcitas.Controllers;
 
+import www.sistema.agendador.sistemaagendadorcitas.bdd.conexionBdd;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,20 +60,24 @@ public class DoctorController {
                     actualStage.close(); // Cerrar la ventana actual
 
                 }else {
-                    if (validar.validarLogin(correoUsuarioIniciarSesion.getText(),passUsuarioIniciarSesion.getText())){
-                        FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
-                        Stage nuevoStage = new Stage();
-                        Scene form = new Scene(indexDoctor.load(),949,526);
-                        /*ocuapmos el argumento stage para preparar y ejecutar el form*/
-                        nuevoStage.setTitle("Sistema Agendador de Citas");
-                        nuevoStage.setResizable(false);
-                        nuevoStage.setScene(form);
-                        Alertas.confirmacionCierre(nuevoStage);
-                        nuevoStage.show();
+                    if (conexionBdd.getConnection() != null){
+                        if (validar.validarLogin(correoUsuarioIniciarSesion.getText(),passUsuarioIniciarSesion.getText())){
+                            FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
+                            Stage nuevoStage = new Stage();
+                            Scene form = new Scene(indexDoctor.load(),949,526);
+                            /*ocuapmos el argumento stage para preparar y ejecutar el form*/
+                            nuevoStage.setTitle("Sistema Agendador de Citas");
+                            nuevoStage.setResizable(false);
+                            nuevoStage.setScene(form);
+                            Alertas.confirmacionCierre(nuevoStage);
+                            nuevoStage.show();
 
-                        // Cerrar el formulario actual
-                        Stage actualStage = (Stage) botonIniciarSesion.getScene().getWindow(); // Obtener el Stage actual
-                        actualStage.close(); // Cerrar la ventana actual
+                            // Cerrar el formulario actual
+                            Stage actualStage = (Stage) botonIniciarSesion.getScene().getWindow(); // Obtener el Stage actual
+                            actualStage.close(); // Cerrar la ventana actual
+                        }
+                    }else {
+                        System.out.println("XD no se pudo jaskdas");
                     }
                 }
 
