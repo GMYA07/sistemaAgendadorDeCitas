@@ -1,5 +1,6 @@
 package www.sistema.agendador.sistemaagendadorcitas.Controllers;
 
+import www.sistema.agendador.sistemaagendadorcitas.Models.ProcedenciaModel;
 import www.sistema.agendador.sistemaagendadorcitas.bdd.conexionBdd;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,11 +12,13 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import www.sistema.agendador.sistemaagendadorcitas.bdd.procedenciaDAO;
 import www.sistema.agendador.sistemaagendadorcitas.sistemAgendadorApp;
 import www.sistema.agendador.sistemaagendadorcitas.src.Alertas;
 import www.sistema.agendador.sistemaagendadorcitas.src.Validaciones;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 public class DoctorController {
@@ -94,6 +97,8 @@ public class DoctorController {
                 // Cerrar el formulario actual
                 Stage actualStage = (Stage) botonAgendar.getScene().getWindow(); // Obtener el Stage actual
                 actualStage.close(); // Cerrar la ventana actual
+
+
 
             } else if (event.getSource() == botonRegistrarCita) {
 

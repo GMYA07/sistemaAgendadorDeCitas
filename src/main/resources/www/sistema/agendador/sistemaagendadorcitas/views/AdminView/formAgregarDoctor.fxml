@@ -37,16 +37,7 @@
             <Label layoutX="409.0" layoutY="181.0" prefHeight="21.0" prefWidth="94.0" text="Contraseña  :" />
             <PasswordField fx:id="inputPass" layoutX="510.0" layoutY="179.0" prefHeight="31.0" prefWidth="347.0" />
             <Label layoutX="35.0" layoutY="231.0" prefHeight="21.0" prefWidth="94.0" text="Procedencia  :" />
-            <ComboBox fx:id="selectProcencia" layoutX="135.0" layoutY="226.0" prefHeight="31.0" prefWidth="264.0" promptText="Departamento, Ciudad">
-               <items>
-                  <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="San Salvador, San Martin" />
-                     <String fx:value="San Miguel, San Miguel" />
-                     <String fx:value="Cabañas, Ilobasco" />
-                     <String fx:value="San Salvador, Ilopango" />
-                  </FXCollections>
-               </items>
-            </ComboBox>
+            <ComboBox fx:id="selectProcencia" layoutX="135.0" layoutY="226.0" prefHeight="31.0" prefWidth="264.0" promptText="Departamento, Ciudad"/>
             <Label layoutX="409.0" layoutY="231.0" prefHeight="21.0" prefWidth="94.0" text="Especialidad  :" />
             <DatePicker fx:id="inputFecha" layoutX="711.0" layoutY="83.0" prefHeight="31.0" prefWidth="161.0" />
             <TextField fx:id="inputEspecialidad" layoutX="530.0" layoutY="226.0" prefHeight="31.0" prefWidth="283.0" />

@@ -1,6 +1,7 @@
 package www.sistema.agendador.sistemaagendadorcitas.src;
 
 import javafx.scene.control.Alert;
+import www.sistema.agendador.sistemaagendadorcitas.Models.ProcedenciaModel;
 
 import java.time.LocalDate;
 import java.util.regex.Matcher;
@@ -56,8 +57,8 @@ public class Validaciones {
             return true;
         }
     }
-    public boolean validarFormAgregarDoctor(String duiDoctor,String Telefono,LocalDate fechaNacDoc,String nombresDoctor,String apellidosDoctor,String correoDoctor,String password,String Procedencia,String Especialidad){
-        if (duiDoctor.isEmpty() || Telefono.isEmpty() || fechaNacDoc == null || nombresDoctor.isEmpty() || apellidosDoctor.isEmpty() || correoDoctor.isEmpty() || password.isEmpty() || Procedencia == null || Especialidad.isEmpty()){
+    public boolean validarFormAgregarDoctor(String duiDoctor, String Telefono, LocalDate fechaNacDoc, String nombresDoctor, String apellidosDoctor, String correoDoctor, String password, ProcedenciaModel procedencia, String Especialidad){
+        if (duiDoctor.isEmpty() || Telefono.isEmpty() || fechaNacDoc == null || nombresDoctor.isEmpty() || apellidosDoctor.isEmpty() || correoDoctor.isEmpty() || password.isEmpty() || procedencia == null || Especialidad.isEmpty()){
             alerta.alertaError("ERROR","Error al Agregar","Alguno de los campos esta vacio");
             return false;
         }else {
@@ -85,8 +86,8 @@ public class Validaciones {
         }
 
     }
-    public boolean validarFormAgregarPaciente(String duiPaciente,String Telefono,LocalDate fechaNacPaciente,String nombresPaciente,String apellidosPaciente,String correoPaciente,String password,String Procedencia,String Descripcion){
-        if (duiPaciente.isEmpty() || Telefono.isEmpty() || fechaNacPaciente == null || nombresPaciente.isEmpty() || apellidosPaciente.isEmpty() || correoPaciente.isEmpty() || password.isEmpty() || Procedencia == null || Descripcion.isEmpty()){
+    public boolean validarFormAgregarPaciente(String duiPaciente,String Telefono,LocalDate fechaNacPaciente,String nombresPaciente,String apellidosPaciente,String correoPaciente,String password,ProcedenciaModel procedencia,String Descripcion){
+        if (duiPaciente.isEmpty() || Telefono.isEmpty() || fechaNacPaciente == null || nombresPaciente.isEmpty() || apellidosPaciente.isEmpty() || correoPaciente.isEmpty() || password.isEmpty() || procedencia == null || Descripcion.isEmpty()){
             alerta.alertaError("ERROR","Error al Agregar","Alguno de los campos esta vacio");
             return false;
         }else {
