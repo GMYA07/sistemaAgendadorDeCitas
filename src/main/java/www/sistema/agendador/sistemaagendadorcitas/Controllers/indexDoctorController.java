@@ -27,7 +27,7 @@ public class indexDoctorController {
            if (event.getSource() == botonAdministrarPaciente){
                FXMLLoader administrarPaciente = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/pacientesAdmin.fxml"));
                Stage nuevoStage = new Stage();
-               Scene form = new Scene(administrarPaciente.load(),936,597);
+               Scene form = new Scene(administrarPaciente.load(),1465,798);
                /*ocuapmos el argumento stage para preparar y ejecutar el form*/
                nuevoStage.setTitle("Sistema Agendador de Citas");
                nuevoStage.setResizable(false);

@@ -41,6 +41,7 @@ public class Utilidades {
             idGenerado = "DC"+numeroAleatorio;
             return idGenerado;
         }else if (tipoId == 1){
+            idGenerado = "PT"+numeroAleatorio;
             return idGenerado;
         }else {
             return "error";

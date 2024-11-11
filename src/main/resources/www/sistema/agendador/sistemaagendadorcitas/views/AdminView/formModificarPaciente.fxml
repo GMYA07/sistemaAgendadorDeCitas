@@ -6,41 +6,40 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.AdminController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.formModificarPacienteController">
    <children>
-      <AnchorPane id="viewAdminPaciente" prefHeight="557.0" prefWidth="976.0" stylesheets="@../../css/stylePacienteDocView.css">
+      <AnchorPane id="viewAdminPaciente" prefHeight="605.0" prefWidth="1001.0" stylesheets="@../../css/stylePacienteDocView.css">
          <children>
-            <Pane id="contenedorMenu" layoutY="-2.0" prefHeight="85.0" prefWidth="976.0" stylesheets="@../../css/styleIndex.css">
+            <Pane id="contenedorMenu" layoutY="-2.0" prefHeight="85.0" prefWidth="1001.0" stylesheets="@../../css/styleIndex.css">
                <children>
                   <Label layoutX="363.0" prefHeight="73.0" prefWidth="250.0" styleClass="tituloForm" stylesheets="@../../css/styleIndex.css" text="Modificar Paciente" />
                   <Button fx:id="botonRegresar" layoutX="795.0" layoutY="21.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="119.0" styleClass="botonRegresar" stylesheets="@../../css/styleAgendarCita.css" text="regresar " />
                </children>
             </Pane>
-            <Pane layoutX="45.0" layoutY="126.0" prefHeight="370.0" prefWidth="884.0" styleClass="targetas" stylesheets="@../../css/styleConsultaActiva.css">
+            <Pane layoutX="45.0" layoutY="126.0" prefHeight="383.0" prefWidth="884.0" styleClass="targetas" stylesheets="@../../css/styleConsultaActiva.css">
                <children>
                   <Label layoutX="346.0" layoutY="14.0" prefHeight="45.0" prefWidth="250.0" styleClass="titulo" stylesheets="@../../css/styleConsultaActiva.css" text="Modificar Paciente" />
-                  <Button layoutX="191.0" layoutY="316.0" mnemonicParsing="false" onAction="#modificarPaciente" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Modificar" />
+                  <Button fx:id="botonModificar" layoutX="145.0" layoutY="328.0" mnemonicParsing="false" onAction="#modificarPaciente" prefHeight="31.0" prefWidth="191.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Modificar" />
                   <Label layoutX="38.0" layoutY="88.0" prefHeight="21.0" prefWidth="88.0" text="Dui :" />
                   <Label layoutX="301.0" layoutY="88.0" prefHeight="21.0" prefWidth="69.0" text="Telefono:" />
                   <Label layoutX="584.0" layoutY="88.0" prefHeight="21.0" prefWidth="127.0" text="Fecha Nacimiento:" />
                   <Label layoutX="38.0" layoutY="131.0" prefHeight="21.0" prefWidth="75.0" text="Nombres  :" />
                   <Label layoutX="405.0" layoutY="131.0" prefHeight="21.0" prefWidth="82.0" text="Apellidos  :" />
                   <Label layoutX="35.0" layoutY="181.0" prefHeight="21.0" prefWidth="75.0" text="Correo  :" />
-                  <Label layoutX="409.0" layoutY="181.0" prefHeight="21.0" prefWidth="94.0" text="Contraseña  :" />
                   <Label layoutX="35.0" layoutY="242.0" prefHeight="21.0" prefWidth="94.0" text="Procedencia  :" />
-                  <Label layoutX="409.0" layoutY="247.0" prefHeight="21.0" prefWidth="94.0" text="Descripcion  :" />
+                  <Label layoutX="418.0" layoutY="247.0" prefHeight="21.0" prefWidth="94.0" text="Descripcion  :" />
                   <TextField fx:id="inputDui" layoutX="72.0" layoutY="88.0" prefHeight="31.0" prefWidth="202.0" />
                   <TextField fx:id="inputTelefono" layoutX="370.0" layoutY="88.0" prefHeight="31.0" prefWidth="202.0" />
                   <TextField fx:id="inputNombres" layoutX="113.0" layoutY="131.0" prefHeight="31.0" prefWidth="283.0" />
                   <TextField fx:id="inputApellidos" layoutX="487.0" layoutY="131.0" prefHeight="31.0" prefWidth="369.0" />
                   <TextField fx:id="inputCorreo" layoutX="113.0" layoutY="181.0" prefHeight="31.0" prefWidth="283.0" />
-                  <PasswordField fx:id="inputPass" layoutX="511.0" layoutY="181.0" prefHeight="31.0" prefWidth="347.0" />
+                  <TextField fx:id="inputIdPaciente" managed="false" visible="false" />
+                  <TextField fx:id="inputPass" managed="false" visible="false" />
                   <ComboBox fx:id="selectProcencia" layoutX="132.0" layoutY="242.0" prefHeight="31.0" prefWidth="264.0" promptText="Departamento,Ciudad">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
@@ -51,8 +50,17 @@
                         </FXCollections>
                      </items>
                   </ComboBox>
-                  <TextArea fx:id="inputDescripcionPaciente" layoutX="515.0" layoutY="240.0" prefHeight="96.0" prefWidth="338.0" />
+                  <TextArea fx:id="inputDescripcionPaciente" layoutX="517.0" layoutY="232.0" prefHeight="96.0" prefWidth="338.0" />
                   <DatePicker fx:id="inputFecha" layoutX="711.0" layoutY="88.0" prefHeight="31.0" prefWidth="160.0" />
+                  <Label layoutX="405.0" layoutY="192.0" prefHeight="21.0" prefWidth="119.0" text="Estado Paciente  :" />
+                  <ComboBox fx:id="selectEstadoPaciente" layoutX="529.0" layoutY="187.0" prefHeight="31.0" prefWidth="313.0" promptText="Estado Paciente">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Activo" />
+                           <String fx:value="Retirado" />
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
                </children>
             </Pane>
          </children>

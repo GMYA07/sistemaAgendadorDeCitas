@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.AdminController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.formAgregarPacienteController">
    <children>
       <AnchorPane id="viewAdminPaciente" prefHeight="547.0" prefWidth="966.0" stylesheets="@../../css/stylePacienteDocView.css">
          <children>
@@ -25,7 +25,7 @@
             <Pane layoutX="45.0" layoutY="126.0" prefHeight="370.0" prefWidth="884.0" styleClass="targetas" stylesheets="@../../css/styleConsultaActiva.css">
                <children>
                   <Label layoutX="340.0" layoutY="14.0" prefHeight="45.0" prefWidth="233.0" styleClass="titulo" stylesheets="@../../css/styleConsultaActiva.css" text="Ingresar Paciente" />
-                  <Button layoutX="175.0" layoutY="316.0" mnemonicParsing="false" onAction="#agregarPaciente" prefHeight="31.0" prefWidth="160.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Registrar" />
+                  <Button fx:id="doctorPaciente" layoutX="175.0" layoutY="316.0" mnemonicParsing="false" onAction="#agregarPaciente" prefHeight="31.0" prefWidth="160.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Registrar" />
                   <Label layoutX="38.0" layoutY="88.0" prefHeight="21.0" prefWidth="88.0" text="Dui :" />
                   <TextField fx:id="inputDui" layoutX="72.0" layoutY="83.0" prefHeight="31.0" prefWidth="202.0" />
                   <Label layoutX="301.0" layoutY="88.0" prefHeight="21.0" prefWidth="69.0" text="Telefono:" />

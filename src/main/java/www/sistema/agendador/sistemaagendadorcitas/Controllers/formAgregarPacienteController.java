@@ -8,9 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import www.sistema.agendador.sistemaagendadorcitas.Models.DoctorModel;
+import www.sistema.agendador.sistemaagendadorcitas.Models.PacienteModel;
 import www.sistema.agendador.sistemaagendadorcitas.Models.ProcedenciaModel;
-import www.sistema.agendador.sistemaagendadorcitas.bdd.doctorDAO;
+import www.sistema.agendador.sistemaagendadorcitas.bdd.pacienteDAO;
 import www.sistema.agendador.sistemaagendadorcitas.bdd.procedenciaDAO;
 import www.sistema.agendador.sistemaagendadorcitas.sistemAgendadorApp;
 import www.sistema.agendador.sistemaagendadorcitas.src.Alertas;
@@ -21,15 +21,17 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
-public class formAgregarDoctorController {
+public class formAgregarPacienteController {
 
     public void initialize(){
         cargarCombobox();
     }
+    Validaciones validar = new Validaciones();
+
     @FXML
     private Button botonRegresar;
     @FXML
-    private Button doctorAgregar;
+    private Button doctorPaciente;
 
     @FXML
     private ComboBox selectProcencia;
@@ -40,7 +42,7 @@ public class formAgregarDoctorController {
     public void redireccionSistema(ActionEvent event){
         try{
             if (event.getSource() == botonRegresar){
-                FXMLLoader administrarDoctores = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/doctoresAdmin.fxml"));
+                FXMLLoader administrarDoctores = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/pacientesAdmin.fxml"));
                 Stage nuevoStage = new Stage();
                 Scene form = new Scene(administrarDoctores.load(),1465,798);
                 /*ocuapmos el argumento stage para preparar y ejecutar el form*/
@@ -53,8 +55,8 @@ public class formAgregarDoctorController {
                 Stage actualStage = (Stage) botonRegresar.getScene().getWindow(); // Obtener el Stage actual
                 actualStage.close(); // Cerrar la ventana actual
 
-            }else if(event.getSource() == doctorAgregar){
-                FXMLLoader administrarDoctores = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/doctoresAdmin.fxml"));
+            }else if(event.getSource() == doctorPaciente){
+                FXMLLoader administrarDoctores = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/pacientesAdmin.fxml"));
                 Stage nuevoStage = new Stage();
                 Scene form = new Scene(administrarDoctores.load(),1465,798);
                 /*ocuapmos el argumento stage para preparar y ejecutar el form*/
@@ -64,7 +66,7 @@ public class formAgregarDoctorController {
                 Alertas.confirmacionCierre(nuevoStage);
                 nuevoStage.show();
                 // Cerrar el formulario actual
-                Stage actualStage = (Stage) doctorAgregar.getScene().getWindow(); // Obtener el Stage actual
+                Stage actualStage = (Stage) doctorPaciente.getScene().getWindow(); // Obtener el Stage actual
                 actualStage.close(); // Cerrar la ventana actual
             }
 
@@ -101,43 +103,39 @@ public class formAgregarDoctorController {
     @FXML
     TextField inputPass;
     @FXML
-    TextField inputEspecialidad;
-    @FXML
     TextArea inputDescripcionPaciente;
 
-    Validaciones validar = new Validaciones();
-    doctorDAO daoDoctor = new doctorDAO();
-
+    pacienteDAO daoPaciente = new pacienteDAO();
     @FXML
-    public void agregarDoctor(ActionEvent event){
+    public void agregarPaciente(ActionEvent event){
         Alertas alerta = new Alertas();
         ProcedenciaModel seleccion = (ProcedenciaModel) selectProcencia.getSelectionModel().getSelectedItem();
-
-        if (validar.validarFormAgregarDoctor(inputDui.getText(),inputTelefono.getText(),inputFecha.getValue(),inputNombres.getText(),inputApellidos.getText(),inputCorreo.getText(),inputPass.getText(),seleccion,inputEspecialidad.getText())){
-            /*creamos un nuevo doctor*/
-            DoctorModel nuevoDoctor = new DoctorModel();
-            /*Aqui insertamos los datos al objeto*/
-            nuevoDoctor.setIdDoctor(Utilidades.generadorId(0));
-            nuevoDoctor.setDuiDoctor(inputDui.getText());
-            nuevoDoctor.setTelefonoDoctor(inputTelefono.getText());
-            nuevoDoctor.setNombresDoctor(inputNombres.getText());
-            nuevoDoctor.setApellidosDoctor(inputApellidos.getText());
-            nuevoDoctor.setCorreoDoctor(inputCorreo.getText());
-            nuevoDoctor.setPasswordDoctor(Utilidades.generarHash(inputPass.getText()));
-            nuevoDoctor.setProcedenciaDoctor(seleccion.getIdProcedencia());
-            nuevoDoctor.setEspecialidadDoctor(inputEspecialidad.getText());
+        if (validar.validarFormAgregarPaciente(inputDui.getText(),inputTelefono.getText(),inputFecha.getValue(),inputNombres.getText(),inputApellidos.getText(),inputCorreo.getText(),inputPass.getText(),seleccion,inputDescripcionPaciente.getText())){
+            /*creamos un nuevo paciente*/
+            PacienteModel nuevoPaciente = new PacienteModel();
+            nuevoPaciente.setIdPaciente(Utilidades.generadorId(1));
+            nuevoPaciente.setDuiPaciente(inputDui.getText());
+            nuevoPaciente.setNombresPaciente(inputNombres.getText());
+            nuevoPaciente.setApellidosPaciente(inputApellidos.getText());
+            nuevoPaciente.setCorreoPaciente(inputCorreo.getText());
+            nuevoPaciente.setTelefonoPaciente(inputTelefono.getText());
+            nuevoPaciente.setPasswordPaciente(Utilidades.generarHash(inputPass.getText()));
+            nuevoPaciente.setProcedenciaPaciente(seleccion.getIdProcedencia());
+            nuevoPaciente.setDescripcionPaciente(inputDescripcionPaciente.getText());
+            nuevoPaciente.setEstadoPaciente(0);
             /*ahora convertiremos el valor localDate a date*/
-            Date fechaNacDoc =  Date.from(inputFecha.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            nuevoDoctor.setFechaNacDoctor(fechaNacDoc);
-            nuevoDoctor.setEstadoDoctor(0);
+            Date fechaNacPac =  Date.from(inputFecha.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            nuevoPaciente.setFechaNacPaciente(fechaNacPac);
 
-            if (daoDoctor.insertarDoctor(nuevoDoctor) > 0){
-                alerta.alertaCorrecto("INFORMATION","Correcto al Agregar","El doctor ha sido registrado!");
+            if (daoPaciente.insertarPaciente(nuevoPaciente) > 0){
+                alerta.alertaCorrecto("INFORMATION","Correcto al Agregar","El paciente ha sido registrado!");
                 redireccionSistema(event);
             }else {
-                alerta.alertaError("ERROR","Error al Agregar","El doctor no ha sido registrado");
+                alerta.alertaError("ERROR","Error al Agregar","El paciente no ha sido registrado");
             }
+
+
+
         }
     }
-
 }

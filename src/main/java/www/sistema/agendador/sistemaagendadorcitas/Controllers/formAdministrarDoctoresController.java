@@ -123,15 +123,15 @@ public class formAdministrarDoctoresController {
 
                 if(doctorModificar != null){
 
-                    FXMLLoader formModificarPaciente = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/formModificarDoctor.fxml"));
+                    FXMLLoader formModificarDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/formModificarDoctor.fxml"));
                     Stage nuevoStage = new Stage();
-                    Scene form = new Scene(formModificarPaciente.load(),966,547);
+                    Scene form = new Scene(formModificarDoctor.load(),966,547);
                     /*ocuapmos el argumento stage para preparar y ejecutar el form*/
                     nuevoStage.setTitle("Sistema Agendador de Citas");
                     nuevoStage.setResizable(false);
                     nuevoStage.setScene(form);
                     Alertas.confirmacionCierre(nuevoStage);
-                    formModificarDoctorController controller = formModificarPaciente.getController();
+                    formModificarDoctorController controller = formModificarDoctor.getController();
                     controller.setDoctorModificar(doctorModificar);
                     nuevoStage.show();
                     // Cerrar el formulario actual

@@ -6,40 +6,37 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-import www.sistema.agendador.sistemaagendadorcitas.Models.DoctorModel;
+import www.sistema.agendador.sistemaagendadorcitas.Models.PacienteModel;
 import www.sistema.agendador.sistemaagendadorcitas.Models.ProcedenciaModel;
-import www.sistema.agendador.sistemaagendadorcitas.bdd.doctorDAO;
+import www.sistema.agendador.sistemaagendadorcitas.bdd.pacienteDAO;
 import www.sistema.agendador.sistemaagendadorcitas.bdd.procedenciaDAO;
 import www.sistema.agendador.sistemaagendadorcitas.sistemAgendadorApp;
 import www.sistema.agendador.sistemaagendadorcitas.src.Alertas;
-import www.sistema.agendador.sistemaagendadorcitas.src.Utilidades;
 import www.sistema.agendador.sistemaagendadorcitas.src.Validaciones;
 
-import java.awt.*;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
-public class formModificarDoctorController {
+public class formModificarPacienteController {
 
     public void initialize(){
         cargarCombobox();
     }
+
     Validaciones validar = new Validaciones();
 
     @FXML
-    private DoctorModel doctorModificar;
+    private PacienteModel pacienteModificar;
+
     @FXML
     private ComboBox selectProcencia;
     ObservableList<ProcedenciaModel> observableListProcedencia;
     @FXML
-    private ComboBox selectEstadoDoctor;
+    private ComboBox selectEstadoPaciente;
     @FXML
     private Button botonRegresar;
     @FXML
@@ -61,17 +58,18 @@ public class formModificarDoctorController {
     @FXML
     TextField inputPass;
     @FXML
-    TextField inputEspecialidad;
+    TextArea inputDescripcionPaciente;
     @FXML
-    TextField inputIdDoctor;
+    TextField inputIdPaciente;
 
     @FXML
     public void redireccionSistema(ActionEvent event){
-        try{
+
+        try {
             if (event.getSource() == botonRegresar){
-                FXMLLoader administrarDoctores = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/doctoresAdmin.fxml"));
+                FXMLLoader administrarPacientes = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/pacientesAdmin.fxml"));
                 Stage nuevoStage = new Stage();
-                Scene form = new Scene(administrarDoctores.load(),1465,798);
+                Scene form = new Scene(administrarPacientes.load(),1465,798);
                 /*ocuapmos el argumento stage para preparar y ejecutar el form*/
                 nuevoStage.setTitle("Sistema Agendador de Citas");
                 nuevoStage.setResizable(false);
@@ -83,9 +81,9 @@ public class formModificarDoctorController {
                 actualStage.close(); // Cerrar la ventana actual
 
             }else if(event.getSource() == botonModificar){
-                FXMLLoader administrarDoctores = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/doctoresAdmin.fxml"));
+                FXMLLoader administrarPacientes = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/pacientesAdmin.fxml"));
                 Stage nuevoStage = new Stage();
-                Scene form = new Scene(administrarDoctores.load(),1465,798);
+                Scene form = new Scene(administrarPacientes.load(),1465,798);
                 /*ocuapmos el argumento stage para preparar y ejecutar el form*/
                 nuevoStage.setTitle("Sistema Agendador de Citas");
                 nuevoStage.setResizable(false);
@@ -98,11 +96,10 @@ public class formModificarDoctorController {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
+
     }
-
-
 
     public void cargarCombobox(){
         try {
@@ -117,73 +114,73 @@ public class formModificarDoctorController {
     }
 
     @FXML
-    public void modificarDoctor(ActionEvent event){
+    public void modificarPaciente(ActionEvent event){
         Alertas alerta = new Alertas();
-        /*con esto agarramos la seleccion del usuario osea el objeto para sacarle la procedencia*/
         ProcedenciaModel seleccion = (ProcedenciaModel) selectProcencia.getSelectionModel().getSelectedItem();
-        int estado = 0;
-        if (selectEstadoDoctor.getSelectionModel().getSelectedItem().toString().equals("Retirado")){
-            estado = 1;
 
+        int estado = 0;
+        if (selectEstadoPaciente.getSelectionModel().getSelectedItem().toString().equals("Retirado")){
+            estado = 1;
         }
 
-        if (validar.validarFormModificarDoctor(inputDui.getText(),inputTelefono.getText(),inputFecha.getValue(),inputNombres.getText(),inputApellidos.getText(),inputCorreo.getText(),seleccion,inputEspecialidad.getText(),estado)){
-            doctorDAO docDao= new doctorDAO();
-            /*creamos un objeto doctor para modificar*/
-            DoctorModel modificarDoctor = new DoctorModel();
+        if (validar.validarFormAgregarPaciente(inputDui.getText(),inputTelefono.getText(),inputFecha.getValue(),inputNombres.getText(),inputApellidos.getText(),inputCorreo.getText(),inputPass.getText(),seleccion,inputDescripcionPaciente.getText())){
+            pacienteDAO pacDao = new pacienteDAO();
+
+            /*creamos el paciente para modificar*/
+            PacienteModel pacienteModificado = new PacienteModel();
             /*Aqui insertamos los datos al objeto*/
-            modificarDoctor.setIdDoctor(inputIdDoctor.getText());
-            modificarDoctor.setDuiDoctor(inputDui.getText());
-            modificarDoctor.setTelefonoDoctor(inputTelefono.getText());
-            modificarDoctor.setNombresDoctor(inputNombres.getText());
-            modificarDoctor.setApellidosDoctor(inputApellidos.getText());
-            modificarDoctor.setCorreoDoctor(inputCorreo.getText());
-            modificarDoctor.setPasswordDoctor(inputPass.getText());
-            modificarDoctor.setProcedenciaDoctor(seleccion.getIdProcedencia());
-            modificarDoctor.setEspecialidadDoctor(inputEspecialidad.getText());
+            pacienteModificado.setIdPaciente(inputIdPaciente.getText());
+            pacienteModificado.setDuiPaciente(inputDui.getText());
+            pacienteModificado.setNombresPaciente(inputNombres.getText());
+            pacienteModificado.setApellidosPaciente(inputApellidos.getText());
+            pacienteModificado.setCorreoPaciente(inputCorreo.getText());
+            pacienteModificado.setTelefonoPaciente(inputTelefono.getText());
+            pacienteModificado.setPasswordPaciente(inputPass.getText());
+            pacienteModificado.setProcedenciaPaciente(seleccion.getIdProcedencia());
+            pacienteModificado.setDescripcionPaciente(inputDescripcionPaciente.getText());
             /*ahora convertiremos el valor localDate a date*/
             Date fechaNacDoc =  Date.from(inputFecha.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            modificarDoctor.setFechaNacDoctor(fechaNacDoc);
-            modificarDoctor.setEstadoDoctor(estado);
+            pacienteModificado.setFechaNacPaciente(fechaNacDoc);
+            pacienteModificado.setEstadoPaciente(estado);
 
-            if (docDao.modificarDoctor(modificarDoctor) > 0){
-                alerta.alertaCorrecto("INFORMATION","Correcto al Modificar","El doctor ha sido modificado!");
+            if (pacDao.modificarPaciente(pacienteModificado) > 0){
+                alerta.alertaCorrecto("INFORMATION","Correcto al Modificar","El paciente ha sido modificado!");
                 redireccionSistema(event);
             }else {
-                alerta.alertaCorrecto("WARNING","Error al Modificar","El doctor no ha sido modificado!");
+                alerta.alertaCorrecto("WARNING","Error al Modificar","El paciente no ha sido modificado!");
             }
         }
+
+
     }
 
-    public DoctorModel getDoctorModificar() {
-        return doctorModificar;
+    public PacienteModel getPacienteModificar() {
+        return pacienteModificar;
     }
 
-    public void setDoctorModificar(DoctorModel doctorModificar) {
-        this.doctorModificar = doctorModificar;
+    public void setPacienteModificar(PacienteModel pacienteModificar) {
+        this.pacienteModificar = pacienteModificar;
 
-        Date fechaPasar = doctorModificar.getFechaNacDoctor();
+        inputIdPaciente.setText(pacienteModificar.getIdPaciente());
+        inputDui.setText(pacienteModificar.getDuiPaciente());
+        inputNombres.setText(pacienteModificar.getNombresPaciente());
+        inputApellidos.setText(pacienteModificar.getApellidosPaciente());
+        inputCorreo.setText(pacienteModificar.getCorreoPaciente());
+        inputTelefono.setText(pacienteModificar.getTelefonoPaciente());
+        inputPass.setText(pacienteModificar.getPasswordPaciente());
+        procedenciaDAO proDao = new procedenciaDAO();
+        ProcedenciaModel procedencia = proDao.obtenerProcedenciaExacta(pacienteModificar.getProcedenciaPaciente());
+        selectProcencia.setValue(procedencia);
+        inputDescripcionPaciente.setText(pacienteModificar.getDescripcionPaciente());
+        Date fechaPasar = pacienteModificar.getFechaNacPaciente();
         java.sql.Date sqlDate = new java.sql.Date(fechaPasar.getTime());
         LocalDate fechaNac = sqlDate.toLocalDate();
-        inputDui.setText(doctorModificar.getDuiDoctor());
-        inputTelefono.setText(doctorModificar.getTelefonoDoctor());
-        inputNombres.setText(doctorModificar.getNombresDoctor());
-        inputApellidos.setText(doctorModificar.getApellidosDoctor());
-        inputCorreo.setText(doctorModificar.getCorreoDoctor());
         inputFecha.setValue(fechaNac);
-        inputIdDoctor.setText(doctorModificar.getIdDoctor());
-        inputPass.setText(doctorModificar.getPasswordDoctor());
-        procedenciaDAO proDao = new procedenciaDAO();
-        ProcedenciaModel procedencia = proDao.obtenerProcedenciaExacta(doctorModificar.getProcedenciaDoctor());
-        selectProcencia.setValue(procedencia);
-        inputEspecialidad.setText(doctorModificar.getEspecialidadDoctor());
 
-
-
-        if (doctorModificar.getEstadoDoctor() == 0){
-            selectEstadoDoctor.setValue("Activo");
+        if (pacienteModificar.getEstadoPaciente() == 0){
+            selectEstadoPaciente.setValue("Activo");
         }else {
-            selectEstadoDoctor.setValue("Retirado");
+            selectEstadoPaciente.setValue("Retirado");
         }
     }
 }
