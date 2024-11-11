@@ -15,6 +15,10 @@ public class DoctorModel {
     private String especialidadDoctor;
     private Integer estadoDoctor;
 
+    public DoctorModel(){}
+
+
+
 
     public String getIdDoctor() {
         return idDoctor;

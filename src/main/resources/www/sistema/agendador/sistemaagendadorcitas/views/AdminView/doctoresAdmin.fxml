@@ -7,24 +7,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.AdminController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.formAdministrarDoctoresController">
    <children>
-      <AnchorPane id="viewAdminPaciente" prefHeight="558.0" prefWidth="946.0" stylesheets="@../../css/stylePacienteDocView.css">
+      <AnchorPane id="viewAdminPaciente" prefHeight="798.0" prefWidth="1465.0" stylesheets="@../../css/stylePacienteDocView.css">
          <children>
-            <Pane id="contenedorMenu" prefHeight="73.0" prefWidth="946.0" stylesheets="@../../css/styleIndex.css">
+            <Pane id="contenedorMenu" prefHeight="73.0" prefWidth="1465.0" stylesheets="@../../css/styleIndex.css">
                <children>
-                  <Label layoutX="323.0" prefHeight="73.0" prefWidth="290.0" styleClass="tituloForm" stylesheets="@../../css/styleIndex.css" text="Administrar Doctor" />
-                  <Button fx:id="botonRegresar" layoutX="775.0" layoutY="21.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="119.0" styleClass="botonRegresar" stylesheets="@../../css/styleAgendarCita.css" text="regresar " />
+                  <Label layoutX="588.0" prefHeight="73.0" prefWidth="290.0" styleClass="tituloForm" stylesheets="@../../css/styleIndex.css" text="Administrar Doctor" />
+                  <Button fx:id="botonRegresar" layoutX="1254.0" layoutY="21.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="119.0" styleClass="botonRegresar" stylesheets="@../../css/styleAgendarCita.css" text="regresar " />
                </children>
             </Pane>
-            <TableView layoutX="72.0" layoutY="90.0" prefHeight="394.0" prefWidth="802.0">
+            <TableView fx:id="tablaDoctores" layoutX="56.0" layoutY="109.0" prefHeight="554.0" prefWidth="1374.0">
                <columns>
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <TableColumn prefWidth="99.0" text="C2" />
-                  <TableColumn prefWidth="118.0" text="Column X" />
+                  <TableColumn fx:id="columnaId" prefWidth="75.0" text="Id Doctor" />
+                  <TableColumn fx:id="columnaDui" prefWidth="120.0" text="Dui Doctor" />
+                  <TableColumn fx:id="columnaNombres" minWidth="4.0" prefWidth="178.0" text="Nombres Doctor" />
+                  <TableColumn fx:id="columnaApellidos" prefWidth="169.0" text="Apellidos Doctor" />
+                  <TableColumn fx:id="columnaFechaNac" prefWidth="134.0" text="Fecha Nacimiento" />
+                  <TableColumn fx:id="columnaCorreo" prefWidth="142.0" text="Correo Doctor" />
+                  <TableColumn fx:id="columnaTelefono" prefWidth="147.0" text="Telefono Doctor" />
+                  <TableColumn fx:id="columnaProcedencia" prefWidth="132.0" text="Procedencia Doctor" />
+                  <TableColumn fx:id="columnaEspecialidad" prefWidth="135.0" text="Especialidad Doctor" />
+                  <TableColumn fx:id="columnaEstado" prefWidth="141.0" text="Estado Doctor" />
                </columns>
             </TableView>
-            <Button fx:id="botonFormDoctores" layoutX="72.0" layoutY="505.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="156.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Agregar Doctor" />
+            <Button fx:id="botonFormDoctores" layoutX="83.0" layoutY="700.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="156.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Agregar Doctor" />
+            <Button fx:id="botonFormModificar" layoutX="265.0" layoutY="700.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="156.0" styleClass="botonForm" stylesheets="@../../css/styleLogin.css" text="Modificar Doctor" />
+            <Button fx:id="botonFormEliminar" layoutX="443.0" layoutY="700.0" mnemonicParsing="false" onAction="#eliminarDoctor" prefHeight="31.0" prefWidth="156.0" styleClass="botonForm2" stylesheets="@../../css/styleLogin.css" text="Eliminar Doctor" />
          </children>
       </AnchorPane>
    </children>

@@ -86,6 +86,35 @@ public class Validaciones {
         }
 
     }
+    public boolean validarFormModificarDoctor(String duiDoctor, String Telefono, LocalDate fechaNacDoc, String nombresDoctor, String apellidosDoctor, String correoDoctor, ProcedenciaModel procedencia, String Especialidad, Integer Estado){
+        if (duiDoctor.isEmpty() || Telefono.isEmpty() || fechaNacDoc == null || nombresDoctor.isEmpty() || apellidosDoctor.isEmpty() || correoDoctor.isEmpty()  || procedencia == null || Especialidad.isEmpty()){
+            alerta.alertaError("ERROR","Error al Agregar","Alguno de los campos esta vacio");
+            return false;
+        }else {
+            if (!validarDui(duiDoctor)){
+                alerta.alertaError("ERROR","Error al Agregar","el formato del Dui es erroneo");
+                return false;
+            }else {
+                if (!validarTelefono(Telefono)){
+                    alerta.alertaError("ERROR","Error al Agregar","el formato de telefono es erroneo");
+                    return false;
+                }else {
+                    if (!validarFecha(fechaNacDoc,0)){
+                        alerta.alertaError("ERROR","Error al Agregar","la fecha ingresada no es permitida dado que necesitas 18 años para trabajar");
+                        return false;
+                    }else {
+                        if (!correoDoctor.contains("@")){
+                            alerta.alertaAtencion("WARNING","Error al Agregar","No se ha ingresado un formato de correo!");
+                            return false;
+                        }else {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
     public boolean validarFormAgregarPaciente(String duiPaciente,String Telefono,LocalDate fechaNacPaciente,String nombresPaciente,String apellidosPaciente,String correoPaciente,String password,ProcedenciaModel procedencia,String Descripcion){
         if (duiPaciente.isEmpty() || Telefono.isEmpty() || fechaNacPaciente == null || nombresPaciente.isEmpty() || apellidosPaciente.isEmpty() || correoPaciente.isEmpty() || password.isEmpty() || procedencia == null || Descripcion.isEmpty()){
             alerta.alertaError("ERROR","Error al Agregar","Alguno de los campos esta vacio");

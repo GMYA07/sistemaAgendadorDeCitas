@@ -68,4 +68,22 @@ public class Alertas {
             return false ;
         }
     }
+    public static boolean confirmacionEliminar() {
+        // Crear botones personalizados
+        ButtonType botonSi = new ButtonType("Sí", ButtonBar.ButtonData.OK_DONE);
+        ButtonType botonNo = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        // Crear la alerta de confirmación con botones personalizados
+        Alert alerta = new Alert(Alert.AlertType.CONFIRMATION, "¿Desea cerrarar Sesion?", botonSi, botonNo);
+        alerta.setTitle("Confirmación de Cierre");
+        alerta.setHeaderText("Confirmación necesaria");
+
+        // Mostrar la alerta y capturar la respuesta del usuario
+        Optional<ButtonType> resultado = alerta.showAndWait();
+        if (resultado.isEmpty() || resultado.get() == botonSi) {
+            return true;
+        }else {
+            return false ;
+        }
+    }
 }

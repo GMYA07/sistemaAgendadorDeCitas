@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="vistaCompleta" prefHeight="560.0" prefWidth="845.0" stylesheets="@../../css/styleIndex.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.AdminController">
+<AnchorPane id="vistaCompleta" prefHeight="560.0" prefWidth="845.0" stylesheets="@../../css/styleIndex.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.indexDoctorController">
    <children>
       <Pane id="contenedorMenu" prefHeight="73.0" prefWidth="845.0" stylesheets="@../../css/styleIndex.css">
          <children>

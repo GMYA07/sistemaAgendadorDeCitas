@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="vistaLogin" prefHeight="431.0" prefWidth="821.0" stylesheets="@../css/styleLogin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.DoctorController">
+<AnchorPane id="vistaLogin" prefHeight="431.0" prefWidth="821.0" stylesheets="@../css/styleLogin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.formLoginController">
    <children>
       <Label id="tituloLabel2" layoutX="57.0" layoutY="47.0" prefHeight="49.0" prefWidth="180.0" stylesheets="@../css/styleLogin.css" text="Clinica Salvadoreña" />
       <Label id="tituloLabel" layoutX="46.0" layoutY="53.0" prefHeight="118.0" prefWidth="397.0" stylesheets="@../css/styleLogin.css" text="Inicio de sesion" />

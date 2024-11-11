@@ -1,5 +1,10 @@
 package www.sistema.agendador.sistemaagendadorcitas.Controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import www.sistema.agendador.sistemaagendadorcitas.Models.DoctorModel;
 import www.sistema.agendador.sistemaagendadorcitas.Models.ProcedenciaModel;
 import www.sistema.agendador.sistemaagendadorcitas.bdd.conexionBdd;
 import javafx.event.ActionEvent;
@@ -7,17 +12,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import www.sistema.agendador.sistemaagendadorcitas.bdd.doctorDAO;
 import www.sistema.agendador.sistemaagendadorcitas.bdd.procedenciaDAO;
 import www.sistema.agendador.sistemaagendadorcitas.sistemAgendadorApp;
 import www.sistema.agendador.sistemaagendadorcitas.src.Alertas;
 import www.sistema.agendador.sistemaagendadorcitas.src.Validaciones;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 

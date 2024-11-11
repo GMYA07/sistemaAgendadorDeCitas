@@ -28,3 +28,9 @@
     -fx-cursor: hand;
 
 }
+
+.botonForm2{
+    -fx-text-fill: white;
+    -fx-background-color:#c1121f;
+    -fx-cursor: hand;
+}
