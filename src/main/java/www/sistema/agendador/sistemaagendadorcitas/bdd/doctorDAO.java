@@ -50,6 +50,27 @@ public class doctorDAO {
         }
     }
 
+    public boolean loginDoctor(String correo, String pass){
+        try {
+            String sql = "SELECT * FROM doctor WHERE correoDoctor = ? AND passwordDoc = ?";
+            Connection conexion = conexionBdd.getConnection();
+            PreparedStatement stm = conexion.prepareStatement(sql);
+            stm.setString(1,correo);
+            stm.setString(2,pass);
+
+            ResultSet rs = stm.executeQuery();
+
+            if (rs.next()) {
+               return true;
+            } else {
+                return false;
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public int insertarDoctor(DoctorModel nuevoDoctor){
         try {
             int filasInsertadas = 0;

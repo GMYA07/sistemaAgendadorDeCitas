@@ -8,8 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import www.sistema.agendador.sistemaagendadorcitas.bdd.conexionBdd;
+import www.sistema.agendador.sistemaagendadorcitas.bdd.doctorDAO;
 import www.sistema.agendador.sistemaagendadorcitas.sistemAgendadorApp;
 import www.sistema.agendador.sistemaagendadorcitas.src.Alertas;
+import www.sistema.agendador.sistemaagendadorcitas.src.Utilidades;
 import www.sistema.agendador.sistemaagendadorcitas.src.Validaciones;
 
 public class formLoginController {
@@ -22,10 +24,11 @@ public class formLoginController {
     private Button botonIniciarSesion;
 
     Validaciones validar = new Validaciones();
+    Alertas alerta = new Alertas();
 
     public void redireccionSistema(ActionEvent event){
         try {
-            if (correoUsuarioIniciarSesion.getText().equals("admin@clinicasalvadoreña.com")){
+            if (correoUsuarioIniciarSesion.getText().equals("admin@clinicasv.com")){
 
                 FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/indexAdmin.fxml"));
                 Stage nuevoStage = new Stage();
@@ -42,25 +45,31 @@ public class formLoginController {
                 actualStage.close(); // Cerrar la ventana actual
 
             }else {
-                if (conexionBdd.getConnection() != null){
                     if (validar.validarLogin(correoUsuarioIniciarSesion.getText(),passUsuarioIniciarSesion.getText())){
-                        FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
-                        Stage nuevoStage = new Stage();
-                        Scene form = new Scene(indexDoctor.load(),949,526);
-                        /*ocuapmos el argumento stage para preparar y ejecutar el form*/
-                        nuevoStage.setTitle("Sistema Agendador de Citas");
-                        nuevoStage.setResizable(false);
-                        nuevoStage.setScene(form);
-                        Alertas.confirmacionCierre(nuevoStage);
-                        nuevoStage.show();
+                        doctorDAO docDao = new doctorDAO();
 
-                        // Cerrar el formulario actual
-                        Stage actualStage = (Stage) botonIniciarSesion.getScene().getWindow(); // Obtener el Stage actual
-                        actualStage.close(); // Cerrar la ventana actual
+                        String passHash = Utilidades.generarHash(passUsuarioIniciarSesion.getText());
+
+                        if (docDao.loginDoctor(correoUsuarioIniciarSesion.getText(),passHash)){
+                            FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
+                            Stage nuevoStage = new Stage();
+                            Scene form = new Scene(indexDoctor.load(),949,526);
+                            /*ocuapmos el argumento stage para preparar y ejecutar el form*/
+                            nuevoStage.setTitle("Sistema Agendador de Citas");
+                            nuevoStage.setResizable(false);
+                            nuevoStage.setScene(form);
+                            Alertas.confirmacionCierre(nuevoStage);
+                            nuevoStage.show();
+
+                            // Cerrar el formulario actual
+                            Stage actualStage = (Stage) botonIniciarSesion.getScene().getWindow(); // Obtener el Stage actual
+                            actualStage.close(); // Cerrar la ventana actual
+                        }else {
+                            alerta.alertaError("ERROR","Error al iniciar Sesion!","Correo o contraseña incorrecta!!");
+                        }
+
                     }
-                }else {
-                    System.out.println("XD no se pudo jaskdas");
-                }
+
             }
         }catch (Exception e){
             e.printStackTrace();
