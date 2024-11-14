@@ -50,9 +50,9 @@ public class doctorDAO {
         }
     }
 
-    public boolean loginDoctor(String correo, String pass){
+    public String loginDoctor(String correo, String pass){
         try {
-            String sql = "SELECT * FROM doctor WHERE correoDoctor = ? AND passwordDoc = ?";
+            String sql = "SELECT idDoctor FROM doctor WHERE correoDoctor = ? AND passwordDoc = ?";
             Connection conexion = conexionBdd.getConnection();
             PreparedStatement stm = conexion.prepareStatement(sql);
             stm.setString(1,correo);
@@ -61,9 +61,9 @@ public class doctorDAO {
             ResultSet rs = stm.executeQuery();
 
             if (rs.next()) {
-               return true;
+               return rs.getString("idDoctor");
             } else {
-                return false;
+                return "error";
             }
 
         } catch (Exception e) {
@@ -155,6 +155,30 @@ public class doctorDAO {
             int filasEliminadas = stm.executeUpdate();
 
             return  filasEliminadas;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String obtenerTituloIndex(String idDoctor){
+        String sql = "SELECT apellidosDoctor FROM doctor WHERE idDoctor = ?";
+
+        try {
+            Connection conexion = conexionBdd.getConnection();
+            PreparedStatement stm = conexion.prepareStatement(sql);
+            // Establecer el valor del parámetro
+            stm.setString(1, idDoctor); // Asigna el valor de idDoctor al primer "?"
+
+            // se ejecuta la consulta
+            ResultSet rs = stm.executeQuery();
+
+            if (rs.next()) {
+                return  rs.getString("apellidosDoctor");
+            } else {
+                System.out.println("No se encontró el doctor con ese ID");
+                return "";
+            }
 
         } catch (Exception e) {
             throw new RuntimeException(e);

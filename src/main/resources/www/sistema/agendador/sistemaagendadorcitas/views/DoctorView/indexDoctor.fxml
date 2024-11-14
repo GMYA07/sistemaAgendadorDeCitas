@@ -7,12 +7,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="vistaCompleta" prefHeight="569.0" prefWidth="949.0" stylesheets="@../../css/styleIndex.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.DoctorController">
+<AnchorPane id="vistaCompleta" prefHeight="569.0" prefWidth="949.0" stylesheets="@../../css/styleIndex.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.indexDoctorController">
    <children>
       <Pane id="contenedorMenu" layoutY="-3.0" prefHeight="73.0" prefWidth="949.0" stylesheets="@../../css/styleIndex.css">
          <children>
             <Label layoutX="245.0" prefHeight="73.0" prefWidth="417.0" styleClass="tituloForm" stylesheets="@../../css/styleIndex.css" text="Bienvenido Doctor" />
-            <Label layoutX="498.0" prefHeight="73.0" prefWidth="329.0" styleClass="tituloForm" stylesheets="@../../css/styleIndex.css" text="Luciano Vieto" />
+            <Label fx:id="tituloApellidos" layoutX="498.0" prefHeight="73.0" prefWidth="329.0" styleClass="tituloForm" stylesheets="@../../css/styleIndex.css" text="Luciano Vieto" />
             <Button fx:id="botonCerrarSesion" layoutX="802.0" layoutY="21.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="119.0" styleClass="botonRegresar" stylesheets="@../../css/styleAgendarCita.css" text="Cerrar Sesion" />
          </children>
       </Pane>

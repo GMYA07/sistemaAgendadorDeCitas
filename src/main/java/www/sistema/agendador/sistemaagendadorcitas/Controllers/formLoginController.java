@@ -11,6 +11,7 @@ import www.sistema.agendador.sistemaagendadorcitas.bdd.conexionBdd;
 import www.sistema.agendador.sistemaagendadorcitas.bdd.doctorDAO;
 import www.sistema.agendador.sistemaagendadorcitas.sistemAgendadorApp;
 import www.sistema.agendador.sistemaagendadorcitas.src.Alertas;
+import www.sistema.agendador.sistemaagendadorcitas.src.SessionManager;
 import www.sistema.agendador.sistemaagendadorcitas.src.Utilidades;
 import www.sistema.agendador.sistemaagendadorcitas.src.Validaciones;
 
@@ -50,7 +51,9 @@ public class formLoginController {
 
                         String passHash = Utilidades.generarHash(passUsuarioIniciarSesion.getText());
 
-                        if (docDao.loginDoctor(correoUsuarioIniciarSesion.getText(),passHash)){
+                        String idDoctor = docDao.loginDoctor(correoUsuarioIniciarSesion.getText(),passHash); // si trae la cadena error es por q hubo un error si es diferente pasara
+                        if (!idDoctor.equals("error")){
+                            SessionManager.getInstance().setIdDoctor(idDoctor);
                             FXMLLoader indexDoctor = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
                             Stage nuevoStage = new Stage();
                             Scene form = new Scene(indexDoctor.load(),949,526);
