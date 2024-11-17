@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="vistaCompleta" prefHeight="571.0" prefWidth="991.0" stylesheets="@../../css/styleAgendarCita.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.DoctorController">
+<AnchorPane id="vistaCompleta" prefHeight="571.0" prefWidth="991.0" stylesheets="@../../css/styleAgendarCita.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.agendarCitasController">
    <children>
       <Pane id="menuTop" prefHeight="67.0" prefWidth="991.0" stylesheets="@../../css/styleAgendarCita.css">
          <children>
@@ -15,15 +18,41 @@
             <Button fx:id="botonRegresar" layoutX="842.0" layoutY="18.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="119.0" styleClass="botonRegresar" stylesheets="@../../css/styleAgendarCita.css" text="regresar " />
          </children>
       </Pane>
-      <Pane id="contenedorFormAgendar" layoutX="119.0" layoutY="174.0" prefHeight="268.0" prefWidth="755.0" stylesheets="@../../css/styleAgendarCita.css">
+      <Pane id="contenedorFormAgendar" layoutX="119.0" layoutY="174.0" prefHeight="321.0" prefWidth="755.0" stylesheets="@../../css/styleAgendarCita.css">
          <children>
-            <Label layoutX="46.0" layoutY="52.0" prefHeight="45.0" prefWidth="119.0" text="Dui Paciente:" />
-            <Label layoutX="74.0" layoutY="130.0" prefHeight="31.0" prefWidth="107.0" text="Fecha Cita: " />
-            <Label layoutX="422.0" layoutY="130.0" prefHeight="31.0" prefWidth="107.0" text="Hora Cita: " />
-            <TextField fx:id="duiCliente" layoutX="184.0" layoutY="53.0" prefHeight="44.0" prefWidth="546.0" styleClass="inputsForm" stylesheets="@../../css/styleAgendarCita.css" />
-            <TextField fx:id="horaCita" layoutX="529.0" layoutY="124.0" prefHeight="44.0" prefWidth="153.0" styleClass="inputsForm" stylesheets="@../../css/styleAgendarCita.css" />
-            <Button layoutX="315.0" layoutY="206.0" mnemonicParsing="false" onAction="#agendarCita" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Agendar" />
-            <DatePicker fx:id="fechaCita" layoutX="188.0" layoutY="124.0" prefHeight="44.0" prefWidth="209.0" styleClass="inputsForm" stylesheets="@../../css/styleAgendarCita.css" />
+            <Label layoutX="62.0" layoutY="53.0" prefHeight="45.0" prefWidth="119.0" text="Paciente:" />
+            <Label layoutX="74.0" layoutY="187.0" prefHeight="31.0" prefWidth="107.0" text="Fecha Cita: " />
+            <Label layoutX="422.0" layoutY="187.0" prefHeight="31.0" prefWidth="107.0" text="Hora Cita: " />
+            <TextField fx:id="nombresPaciente" disable="true" layoutX="184.0" layoutY="53.0" prefHeight="44.0" prefWidth="546.0" styleClass="inputsForm" stylesheets="@../../css/styleAgendarCita.css" />
+            <Button layoutX="315.0" layoutY="263.0" mnemonicParsing="false" onAction="#agendarCita" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Agendar" />
+            <DatePicker fx:id="fechaCita" layoutX="188.0" layoutY="181.0" prefHeight="44.0" prefWidth="209.0" styleClass="inputsForm" stylesheets="@../../css/styleAgendarCita.css" />
+            <Label layoutX="46.0" layoutY="116.0" prefHeight="45.0" prefWidth="119.0" text="Dui Paciente:" />
+            <TextField fx:id="duiCliente" layoutX="184.0" layoutY="117.0" prefHeight="44.0" prefWidth="546.0" styleClass="inputsForm" stylesheets="@../../css/styleAgendarCita.css" />
+            <ComboBox fx:id="horaCita" layoutX="520.0" layoutY="181.0" prefHeight="44.0" prefWidth="201.0" promptText="HH:MM">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="08:00" />
+                     <String fx:value="08:30" />
+                     <String fx:value="09:00" />
+                     <String fx:value="09:30" />
+                     <String fx:value="10:00" />
+                     <String fx:value="10:30" />
+                     <String fx:value="11:00" />
+                     <String fx:value="11:30" />
+                     <String fx:value="12:00" />
+                     <String fx:value="12:30" />
+                     <String fx:value="13:00" />
+                     <String fx:value="13:30" />
+                     <String fx:value="14:00" />
+                     <String fx:value="14:30" />
+                     <String fx:value="15:00" />
+                     <String fx:value="15:30" />
+                     <String fx:value="16:00" />
+                     <String fx:value="16:30" />
+                     <String fx:value="17:00" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
          </children>
       </Pane>
    </children>

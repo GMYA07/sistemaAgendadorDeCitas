@@ -121,4 +121,54 @@ public class pacienteDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public String obtenerNombres(String idPaciente){
+        String sql = "SELECT nombrePaciente,apellidosPaciente FROM paciente WHERE duiPaciente = ?";
+
+        try {
+            Connection conexion = conexionBdd.getConnection();
+            PreparedStatement stm = conexion.prepareStatement(sql);
+            // Establecer el valor del parámetro
+            stm.setString(1, idPaciente); // Asigna el valor de idDoctor al primer "?"
+
+            // se ejecuta la consulta
+            ResultSet rs = stm.executeQuery();
+
+            System.out.println(idPaciente);
+
+            if (rs.next()) {
+                System.out.println(rs.getString("nombrePaciente") + " " + rs.getString("apellidosPaciente"));
+                return  rs.getString("nombrePaciente") + " " + rs.getString("apellidosPaciente");
+
+            } else {
+                return"Ningun Paciente Encontrado";
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public String obtenerIdPaciente(String duiPaciente){
+        String sql = "SELECT idPaciente FROM paciente WHERE duiPaciente = ?";
+
+        try {
+            Connection conexion = conexionBdd.getConnection();
+            PreparedStatement stm = conexion.prepareStatement(sql);
+            // Establecer el valor del parámetro
+            stm.setString(1, duiPaciente); // Asigna el valor de idDoctor al primer "?"
+
+            // se ejecuta la consulta
+            ResultSet rs = stm.executeQuery();
+
+            if (rs.next()) {
+                return  rs.getString("idPaciente");
+
+            } else {
+                return"Ningun Paciente Encontrado";
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

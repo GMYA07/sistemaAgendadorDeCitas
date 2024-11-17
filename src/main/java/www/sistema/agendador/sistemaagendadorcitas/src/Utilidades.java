@@ -2,6 +2,8 @@ package www.sistema.agendador.sistemaagendadorcitas.src;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 
 public class Utilidades {
@@ -30,12 +32,12 @@ public class Utilidades {
 
     public static String generadorId(Integer tipoId){
         String idGenerado = "";
-        // Definir la semilla
-        long semilla = System.currentTimeMillis(); // Puedes usar cualquier valor como semilla
-        // Crear un generador de números aleatorios con la semilla
-        Random random = new Random(semilla);
+        // Crear un generador de números aleatorios
+        Random random = new Random();
         // Generar un número aleatorio entre 100 y 999 (3 cifras)
-        int numeroAleatorio = 100 + random.nextInt(900); // 900 es el rango para obtener un número de 3 cifras
+        int numeroAleatorio = 100 + random.nextInt(999); // 900 es el rango para obtener un número de 3 cifras
+
+        String numeroFormatoNuevo = String.format("%3d",numeroAleatorio);
 
         if (tipoId == 0){
             idGenerado = "DC"+numeroAleatorio;
@@ -43,9 +45,34 @@ public class Utilidades {
         }else if (tipoId == 1){
             idGenerado = "PT"+numeroAleatorio;
             return idGenerado;
+        }else if(tipoId == 2) {
+            // Generar un número aleatorio entre 100 y 999 (3 cifras)
+            numeroAleatorio = 100 + random.nextInt(9999999); // 900 es el rango para obtener un número de 3 cifras
+            numeroFormatoNuevo = String.format("%7d",numeroAleatorio);
+            idGenerado = "E"+numeroAleatorio;
+            return idGenerado;
+        }else if (tipoId == 3){
+            idGenerado = "C"+numeroAleatorio;
+            return idGenerado;
         }else {
             return "error";
         }
+    }
 
+    public static Time convertirHora (String horaString){
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+
+        try {
+            // Convertir String a Date
+            java.util.Date date = sdf.parse(horaString);
+
+            // Convertir Date a SQL Time (sin segundos)
+            Time horaCita = new Time(date.getTime());
+
+            // Ahora 'time' es un objeto java.sql.Time que puedes almacenar en la base de datos
+            return horaCita;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -2,8 +2,14 @@ package www.sistema.agendador.sistemaagendadorcitas.src;
 
 import javafx.scene.control.Alert;
 import www.sistema.agendador.sistemaagendadorcitas.Models.ProcedenciaModel;
+import www.sistema.agendador.sistemaagendadorcitas.Models.citasModel;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -145,6 +151,34 @@ public class Validaciones {
 
     }
 
+    public boolean validarHorarioCita(List<citasModel> citaVerificar, String horaCitaRegistrar, LocalDate fechaCitaRegistrar){
+        try {
+            boolean existe = false;
+
+            for (citasModel cita : citaVerificar){
+                /*esta parte del cod une la hora y fecha para compararla mas adelante en el if*/
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                LocalDateTime fechaHoraRegistrar = LocalDateTime.parse(fechaCitaRegistrar + " " + horaCitaRegistrar, formatter);
+
+                /*Transforma el formato de la base de datos a la escrita en el input*/
+                DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+                LocalTime horaCita = LocalTime.parse(cita.getHoraCita().substring(0, 5), timeFormatter); /*el subsstring le quita los segundos a la hora q viene de la bdd q necesitamos quitar para poder comparar para la valicacion*/
+
+                LocalDateTime fechaHoraVerificar = LocalDateTime.parse(cita.getFechaCita() + " " + horaCita, formatter);
+
+                if (fechaHoraRegistrar.isEqual(fechaHoraVerificar)) { /*verifica si la hora y la fecha son iguales*/
+                    System.out.println("Las fechas y horas son iguales.");
+                    existe = true;
+                    alerta.alertaAtencion("WARNING","Error al Agendar","Existe una Cita en la fecha y hora estipulada");
+                    break;
+                }
+            }
+            return existe;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private boolean validarDui(String dui){
         // Expresión regular para validar el formato del DUI
         String DUI_REGEX = "^\\d{8}-\\d$";
@@ -181,4 +215,6 @@ public class Validaciones {
             return false;
         }
     }
+
+
 }

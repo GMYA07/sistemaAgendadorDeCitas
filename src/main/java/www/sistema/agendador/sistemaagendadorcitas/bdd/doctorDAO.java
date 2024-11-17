@@ -32,15 +32,6 @@ public class doctorDAO {
                 doctorRetornar.setEstadoDoctor(rs.getInt("estadoDoctor"));
                 listaDoctores.add(doctorRetornar);
             }
-
-            for (DoctorModel doctor : listaDoctores) {
-
-                System.out.println("ID: " + doctor.getIdDoctor());
-                System.out.println("Nombres: " + doctor.getNombresDoctor());
-                System.out.println("Apellidos: " + doctor.getApellidosDoctor());
-                System.out.println("---");
-            }
-
             return listaDoctores;
 
         }catch (Exception e) {

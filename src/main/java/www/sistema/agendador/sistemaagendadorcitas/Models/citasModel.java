@@ -6,6 +6,7 @@ import java.util.Date;
 public class citasModel {
     private String idCita;
     private String idExpedienteCita;
+    private String idDoctor_Cita;
     private Date fechaCita;
     private String horaCita;
     private String descripcionCita;
@@ -57,5 +58,13 @@ public class citasModel {
 
     public void setEstadoCita(Integer estadoCita) {
         this.estadoCita = estadoCita;
+    }
+
+    public String getIdDoctor_Cita() {
+        return idDoctor_Cita;
+    }
+
+    public void setIdDoctor_Cita(String idDoctor_Cita) {
+        this.idDoctor_Cita = idDoctor_Cita;
     }
 }
