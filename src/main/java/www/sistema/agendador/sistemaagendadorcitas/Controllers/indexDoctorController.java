@@ -52,7 +52,7 @@ public class indexDoctorController {
 
                 FXMLLoader vistaRegistroCitas = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/registroConsultas.fxml"));
                 Stage nuevoStage = new Stage();
-                Scene form = new Scene(vistaRegistroCitas.load(),996,583);
+                Scene form = new Scene(vistaRegistroCitas.load(),1126,598);
                 /*ocuapmos el argumento stage para preparar y ejecutar el form*/
                 nuevoStage.setTitle("Sistema Agendador de Citas");
                 nuevoStage.setResizable(false);
@@ -68,7 +68,7 @@ public class indexDoctorController {
             } else if (event.getSource() == botonRevisarConsulta) {
                 FXMLLoader vistaRevisarConsulta = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/consultasPendientes.fxml"));
                 Stage nuevoStage = new Stage();
-                Scene form = new Scene(vistaRevisarConsulta.load(),996,722);
+                Scene form = new Scene(vistaRevisarConsulta.load(),728,571);
                 /*ocuapmos el argumento stage para preparar y ejecutar el form*/
                 nuevoStage.setTitle("Sistema Agendador de Citas");
                 nuevoStage.setResizable(false);

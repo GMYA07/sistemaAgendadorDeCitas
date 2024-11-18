@@ -40,6 +40,37 @@ public class pacienteDAO {
             return null;
         }
     }
+    public PacienteModel obtenerPaciente(String idPaciente){
+        PacienteModel pacienteRetornar = new PacienteModel();
+        String consulta ="SELECT * FROM paciente WHERE idPaciente = ?";
+        try {
+            Connection conexion = conexionBdd.getConnection();
+            PreparedStatement stmt = conexion.prepareStatement(consulta);
+            stmt.setString(1,idPaciente);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()){
+                pacienteRetornar.setIdPaciente(rs.getString("idPaciente"));
+                pacienteRetornar.setDuiPaciente(rs.getString("duiPaciente"));
+                pacienteRetornar.setNombresPaciente(rs.getString("nombrePaciente"));
+                pacienteRetornar.setApellidosPaciente(rs.getString("apellidosPaciente"));
+                pacienteRetornar.setFechaNacPaciente(rs.getDate("fechaNacPaciente"));
+                pacienteRetornar.setTelefonoPaciente(rs.getString("telefonoPaciente"));
+                pacienteRetornar.setCorreoPaciente(rs.getString("correoPaciente"));
+                pacienteRetornar.setPasswordPaciente(rs.getString("passPaciente"));
+                pacienteRetornar.setProcedenciaPaciente(rs.getString("procedenciaPaciente"));
+                pacienteRetornar.setDescripcionPaciente(rs.getString("descripcionPaciente"));
+                pacienteRetornar.setEstadoPaciente(rs.getInt("estadoPaciente"));
+            }
+
+            return pacienteRetornar;
+
+        }catch (Exception e) {
+            e.printStackTrace();
+
+            return null;
+        }
+    }
 
     public int insertarPaciente(PacienteModel nuevoPaciente){
         try{

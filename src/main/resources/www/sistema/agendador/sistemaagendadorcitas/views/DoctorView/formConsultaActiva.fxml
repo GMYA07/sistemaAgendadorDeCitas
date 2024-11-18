@@ -8,27 +8,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="viewConsultaActiva" prefHeight="675.0" prefWidth="996.0" stylesheets="@../../css/styleConsultaActiva.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.DoctorController">
+<AnchorPane id="viewConsultaActiva" prefHeight="675.0" prefWidth="996.0" stylesheets="@../../css/styleConsultaActiva.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.formConsultaActivaController">
    <children>
       <Pane id="menuTop" prefHeight="67.0" prefWidth="996.0" stylesheets="@../../css/styleAgendarCita.css">
          <children>
             <Label id="menuTop" layoutX="448.0" layoutY="11.0" prefHeight="45.0" prefWidth="101.0" stylesheets="@../../css/styleAgendarCita.css" text="Consulta" />
+            <Button fx:id="botonRegresar" layoutX="853.0" layoutY="17.0" mnemonicParsing="false" onAction="#redireccionSistema" prefHeight="31.0" prefWidth="119.0" styleClass="botonRegresar" stylesheets="@../../css/styleAgendarCita.css" text="regresar " />
          </children>
       </Pane>
-      <Pane layoutX="64.0" layoutY="85.0" prefHeight="261.0" prefWidth="869.0" styleClass="targetas" stylesheets="@../../css/styleConsultaActiva.css">
+      <Pane layoutX="64.0" layoutY="113.0" prefHeight="222.0" prefWidth="869.0" styleClass="targetas" stylesheets="@../../css/styleConsultaActiva.css">
          <children>
-            <Label layoutX="45.0" layoutY="65.0" prefHeight="45.0" prefWidth="790.0" text="Dui Paciente: 12345678-9" />
+            <Label fx:id="labelDui" layoutX="45.0" layoutY="65.0" prefHeight="45.0" prefWidth="790.0" text="Dui Paciente: 12345678-9" />
             <Label layoutX="293.0" layoutY="14.0" prefHeight="45.0" prefWidth="283.0" styleClass="titulo" stylesheets="@../../css/styleConsultaActiva.css" text="Informacion Paciente" />
-            <Label layoutX="45.0" layoutY="88.0" prefHeight="45.0" prefWidth="790.0" text="Paciente: Manolo Lama" />
-            <Label layoutX="45.0" layoutY="111.0" prefHeight="45.0" prefWidth="790.0" text="Procedencia Paciente: San Salvador, San Martin" />
-            <Label layoutX="45.0" layoutY="134.0" prefHeight="55.0" prefWidth="790.0" text="Descripcion Paciente: xxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+            <Label fx:id="labelNamePaciente" layoutX="45.0" layoutY="88.0" prefHeight="45.0" prefWidth="790.0" text="Paciente: Manolo Lama" />
+            <Label fx:id="labelProcedencia" layoutX="45.0" layoutY="134.0" prefHeight="45.0" prefWidth="790.0" text="Procedencia Paciente: San Salvador, San Martin" />
+            <Label fx:id="labelDescripPaciente" layoutX="45.0" layoutY="156.0" prefHeight="55.0" prefWidth="790.0" text="Descripcion Paciente: xxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+            <Label fx:id="labelEdad" layoutX="45.0" layoutY="111.0" prefHeight="45.0" prefWidth="790.0" text="Edad paciente: 52" />
          </children>
       </Pane>
       <Pane layoutX="64.0" layoutY="365.0" prefHeight="255.0" prefWidth="413.0" styleClass="targetas" stylesheets="@../../css/styleConsultaActiva.css">
          <children>
             <Label layoutX="20.0" layoutY="22.0" prefHeight="45.0" prefWidth="283.0" styleClass="titulo" stylesheets="@../../css/styleConsultaActiva.css" text="Descripcion Cita" />
             <TextArea fx:id="descripcionCita" layoutX="20.0" layoutY="89.0" prefHeight="97.0" prefWidth="365.0" />
-            <Button layoutX="139.0" layoutY="210.0" mnemonicParsing="false" onAction="#finalizarCita" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Enviar" />
+            <Button fx:id="botonFinalizar" layoutX="139.0" layoutY="210.0" mnemonicParsing="false" onAction="#finalizarCita" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Enviar" />
          </children>
       </Pane>
       <ImageView fitHeight="222.0" fitWidth="248.0" layoutX="646.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">

@@ -4,6 +4,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 public class Utilidades {
@@ -74,5 +78,23 @@ public class Utilidades {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    public static int calcularEdad(Date fechaNacimiento) {
+        // Crear un calendario con la fecha actual
+        Calendar fechaActual = Calendar.getInstance();
+
+        // Crear un calendario con la fecha de nacimiento
+        Calendar fechaNac = Calendar.getInstance();
+        fechaNac.setTime(fechaNacimiento);
+
+        // Calcular la diferencia en años
+        int edad = fechaActual.get(Calendar.YEAR) - fechaNac.get(Calendar.YEAR);
+
+        // Ajustar si aún no ha cumplido años este año
+        if (fechaActual.get(Calendar.DAY_OF_YEAR) < fechaNac.get(Calendar.DAY_OF_YEAR)) {
+            edad--;
+        }
+
+        return edad;
     }
 }
