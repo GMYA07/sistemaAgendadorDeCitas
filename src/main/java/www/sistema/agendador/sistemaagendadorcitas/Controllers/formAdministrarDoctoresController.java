@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import www.sistema.agendador.sistemaagendadorcitas.Models.DoctorModel;
+import www.sistema.agendador.sistemaagendadorcitas.Models.PacienteModel;
 import www.sistema.agendador.sistemaagendadorcitas.bdd.doctorDAO;
 import www.sistema.agendador.sistemaagendadorcitas.sistemAgendadorApp;
 import www.sistema.agendador.sistemaagendadorcitas.src.Alertas;
@@ -24,6 +25,8 @@ public class formAdministrarDoctoresController {
 
     public void initialize(){
         cargarTablaDoctores();
+        columnaEstado.setVisible(false);
+        columnaProcedencia.setVisible(false);
     }
     Alertas alerta = new Alertas();
 
@@ -35,6 +38,8 @@ public class formAdministrarDoctoresController {
     private Button botonFormModificar;
     @FXML
     private Button botonFormEliminar;
+    @FXML
+    private Button botonMasInfo;
 
 
     /*Para el uso de las tablas*/
@@ -155,6 +160,28 @@ public class formAdministrarDoctoresController {
                 // Cerrar el formulario actual
                 Stage actualStage = (Stage) botonFormEliminar.getScene().getWindow(); // Obtener el Stage actual
                 actualStage.close(); // Cerrar la ventana actual
+            }else if (event.getSource() == botonMasInfo) {
+
+                DoctorModel doctorModificar = tablaDoctores.getSelectionModel().getSelectedItem();
+
+                if (doctorModificar != null){
+                    FXMLLoader formViewMasInfo = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/viewMasInfo.fxml"));
+                    Stage nuevoStage = new Stage();
+                    Scene form = new Scene(formViewMasInfo.load(),536,426);
+                    /*ocuapmos el argumento stage para preparar y ejecutar el form*/
+                    nuevoStage.setTitle("Sistema Agendador de Citas");
+                    nuevoStage.setResizable(false);
+                    nuevoStage.setScene(form);
+                    /*esto nos ayudara a mandar el objeto*/
+                    viewMasInfoController controller = formViewMasInfo.getController();
+                    controller.setProcedencia(doctorModificar.getProcedenciaDoctor());
+                    controller.setEstado(doctorModificar.getEstadoDoctor());
+                    nuevoStage.show();
+
+                }else {
+                    alerta.alertaAtencion("WARNING","Administrar Paciente","Debe de seleccionar a algun paciente");
+                }
+
             }
         }catch (Exception e){
             e.printStackTrace();

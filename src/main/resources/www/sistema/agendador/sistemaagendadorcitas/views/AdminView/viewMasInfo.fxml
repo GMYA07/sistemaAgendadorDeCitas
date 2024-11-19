@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="vistaCompleta" prefHeight="426.0" prefWidth="536.0" stylesheets="@../../css/styleIndex.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.viewMasInfoController">
+   <children>
+      <Pane layoutX="49.0" layoutY="110.0" prefHeight="206.0" prefWidth="439.0" styleClass="targetas" stylesheets="@../../css/styleIndex.css">
+         <children>
+            <Label fx:id="labelProcedencia" layoutX="114.0" layoutY="56.0" prefHeight="33.0" prefWidth="323.0" styleClass="targetas" stylesheets="@../../css/styleIndex.css" />
+            <Label fx:id="labelEstado" layoutY="117.0" prefHeight="33.0" prefWidth="134.0" styleClass="targetas" stylesheets="@../../css/styleIndex.css" text="Estado:" />
+            <Label layoutY="56.0" prefHeight="33.0" prefWidth="134.0" styleClass="targetas" stylesheets="@../../css/styleIndex.css" text="Procedencia:" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

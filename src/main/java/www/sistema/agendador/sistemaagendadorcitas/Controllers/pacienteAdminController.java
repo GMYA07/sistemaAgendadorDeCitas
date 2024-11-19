@@ -25,6 +25,8 @@ public class pacienteAdminController {
 
     public void initialize(){
         cargarTablaPacientes();
+        columnaEstado.setVisible(false);
+        columnaProcedencia.setVisible(false);
     }
     Alertas alerta = new Alertas();
 
@@ -36,7 +38,8 @@ public class pacienteAdminController {
     private Button botonFormModificar;
     @FXML
     private Button botonFormEliminar;
-
+    @FXML
+    private Button botonMasInfo;
     /*Para el uso de las tablas*/
     @FXML
     private TableView<PacienteModel> tablaPacientes;
@@ -159,6 +162,28 @@ public class pacienteAdminController {
                 // Cerrar el formulario actual
                 Stage actualStage = (Stage) botonRegresar.getScene().getWindow(); // Obtener el Stage actual
                 actualStage.close(); // Cerrar la ventana actual
+            } else if (event.getSource() == botonMasInfo) {
+
+                PacienteModel pacienteModificar = tablaPacientes.getSelectionModel().getSelectedItem();
+
+                if (pacienteModificar != null){
+                    FXMLLoader formViewMasInfo = new FXMLLoader(sistemAgendadorApp.class.getResource("views/AdminView/viewMasInfo.fxml"));
+                    Stage nuevoStage = new Stage();
+                    Scene form = new Scene(formViewMasInfo.load(),536,426);
+                    /*ocuapmos el argumento stage para preparar y ejecutar el form*/
+                    nuevoStage.setTitle("Sistema Agendador de Citas");
+                    nuevoStage.setResizable(false);
+                    nuevoStage.setScene(form);
+                    /*esto nos ayudara a mandar el objeto*/
+                    viewMasInfoController controller = formViewMasInfo.getController();
+                    controller.setProcedencia(pacienteModificar.getProcedenciaPaciente());
+                    controller.setEstado(pacienteModificar.getEstadoPaciente());
+                    nuevoStage.show();
+
+                }else {
+                    alerta.alertaAtencion("WARNING","Administrar Paciente","Debe de seleccionar a algun paciente");
+                }
+
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

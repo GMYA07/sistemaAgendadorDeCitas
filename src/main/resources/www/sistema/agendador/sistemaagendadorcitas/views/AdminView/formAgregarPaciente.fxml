@@ -50,7 +50,7 @@
                         </FXCollections>
                      </items>
                   </ComboBox>
-                  <Label layoutX="409.0" layoutY="247.0" prefHeight="21.0" prefWidth="94.0" text="Especialidad  :" />
+                  <Label layoutX="409.0" layoutY="247.0" prefHeight="21.0" prefWidth="94.0" text="Descripcion: " />
                   <TextArea fx:id="inputDescripcionPaciente" layoutX="515.0" layoutY="235.0" prefHeight="96.0" prefWidth="338.0" />
                   <DatePicker fx:id="inputFecha" layoutX="711.0" layoutY="83.0" prefHeight="31.0" prefWidth="160.0" />
                </children>
