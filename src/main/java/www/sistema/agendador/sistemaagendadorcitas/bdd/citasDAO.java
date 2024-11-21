@@ -39,6 +39,40 @@ public class citasDAO {
             throw new RuntimeException(e);
         }
     }
+    public ObservableList<ObservableList<String>> obtenerCitasExpiente(String idPaciente){
+        ObservableList<ObservableList<String>> datosTabla = FXCollections.observableArrayList();
+        String sql = "SELECT c.idCita,CONCAT(d.nombresDoctor,' ',d.apellidosDoctor) as NombrePaciente,c.fechaCita,c.descripcionCita FROM paciente as p ";
+               sql += "INNER JOIN expedientecitas as e on p.idPaciente = e.idPaciente_Exp ";
+               sql += "INNER JOIN citas as c on e.idExpediente = c.idExpediente_Cita ";
+               sql += "INNER JOIN doctor as d on c.idDoctor_Cita = d.idDoctor ";
+               sql +="WHERE p.idPaciente = ? AND c.estadioCita = ?";
+
+        try{
+            Connection conexion = conexionBdd.getConnection();
+            PreparedStatement stmt = conexion.prepareStatement(sql);
+            stmt.setString(1,idPaciente);
+            stmt.setInt(2,1);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()){
+                ObservableList<String> fila = FXCollections.observableArrayList();
+                fila.add(rs.getString("c.idCita"));
+                fila.add(rs.getString("NombrePaciente"));
+                // Crear un formateador
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                // Convertir a String
+                String fechaString = formatter.format(rs.getDate("c.fechaCita"));
+                fila.add(fechaString);
+                fila.add(rs.getString("c.descripcionCita"));
+                datosTabla.add(fila);
+            }
+
+            return datosTabla;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
     public ObservableList<ObservableList<String>> obtenerCitasPasadas(String idDoctor){
         ObservableList<ObservableList<String>> datosTabla = FXCollections.observableArrayList();
         String sql = "SELECT c.idCita,CONCAT(p.nombrePaciente,' ',apellidosPaciente) as 'NombrePaciente' ,p.duiPaciente,p.descripcionPaciente,c.fechaCita,c.horaCita,c.descripcionCita FROM citas as c ";

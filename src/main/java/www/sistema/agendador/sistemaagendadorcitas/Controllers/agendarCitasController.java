@@ -46,6 +46,8 @@ public class agendarCitasController {
     @FXML
     Button botonRegresar ;
     @FXML
+    Button btnAgendar;
+    @FXML
     TextField duiCliente;
     @FXML
     ComboBox horaCita;
@@ -57,6 +59,20 @@ public class agendarCitasController {
     public void redireccionSistema(ActionEvent event){
         try {
             if (event.getSource() == botonRegresar){
+                FXMLLoader regresar = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
+                Stage nuevoStage = new Stage();
+                Scene form = new Scene(regresar.load(),949,526);
+                /*ocuapmos el argumento stage para preparar y ejecutar el form*/
+                nuevoStage.setTitle("Sistema Agendador de Citas");
+                nuevoStage.setResizable(false);
+                nuevoStage.setScene(form);
+                Alertas.confirmacionCierre(nuevoStage);
+                nuevoStage.show();
+
+                // Cerrar el formulario actual
+                Stage actualStage = (Stage) botonRegresar.getScene().getWindow(); // Obtener el Stage actual
+                actualStage.close(); // Cerrar la ventana actual
+            } else if (event.getSource() == btnAgendar) {
                 FXMLLoader regresar = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/indexDoctor.fxml"));
                 Stage nuevoStage = new Stage();
                 Scene form = new Scene(regresar.load(),949,526);

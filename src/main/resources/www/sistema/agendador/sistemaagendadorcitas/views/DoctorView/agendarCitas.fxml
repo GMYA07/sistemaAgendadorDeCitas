@@ -24,7 +24,7 @@
             <Label layoutX="74.0" layoutY="187.0" prefHeight="31.0" prefWidth="107.0" text="Fecha Cita: " />
             <Label layoutX="422.0" layoutY="187.0" prefHeight="31.0" prefWidth="107.0" text="Hora Cita: " />
             <TextField fx:id="nombresPaciente" disable="true" layoutX="184.0" layoutY="53.0" prefHeight="44.0" prefWidth="546.0" styleClass="inputsForm" stylesheets="@../../css/styleAgendarCita.css" />
-            <Button layoutX="315.0" layoutY="263.0" mnemonicParsing="false" onAction="#agendarCita" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Agendar" />
+            <Button fx:id="btnAgendar" layoutX="315.0" layoutY="263.0" mnemonicParsing="false" onAction="#agendarCita" prefHeight="31.0" prefWidth="127.0" styleClass="botonForm" stylesheets="@../../css/styleAgendarCita.css" text="Agendar" />
             <DatePicker fx:id="fechaCita" layoutX="188.0" layoutY="181.0" prefHeight="44.0" prefWidth="209.0" styleClass="inputsForm" stylesheets="@../../css/styleAgendarCita.css" />
             <Label layoutX="46.0" layoutY="116.0" prefHeight="45.0" prefWidth="119.0" text="Dui Paciente:" />
             <TextField fx:id="duiCliente" layoutX="184.0" layoutY="117.0" prefHeight="44.0" prefWidth="546.0" styleClass="inputsForm" stylesheets="@../../css/styleAgendarCita.css" />

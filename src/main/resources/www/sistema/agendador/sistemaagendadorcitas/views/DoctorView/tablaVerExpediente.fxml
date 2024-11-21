@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="vistaCompleta" prefHeight="551.0" prefWidth="840.0" stylesheets="@../../css/styleIndex.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="www.sistema.agendador.sistemaagendadorcitas.Controllers.tablaVerExpedienteController">
+   <children>
+      <TableView fx:id="tablaExpediente" layoutX="147.0" layoutY="74.0" prefHeight="403.0" prefWidth="546.0">
+         <columns>
+            <TableColumn fx:id="columnaIdCita" prefWidth="75.0" text="Id Cita" />
+            <TableColumn fx:id="columnaDoctor" prefWidth="120.0" text="Doctor Cita" />
+            <TableColumn fx:id="columnnaFecha" minWidth="4.0" prefWidth="178.0" text="Fecha Cita" />
+            <TableColumn fx:id="columnaDescripcion" prefWidth="169.0" text="Descripcion Cita" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

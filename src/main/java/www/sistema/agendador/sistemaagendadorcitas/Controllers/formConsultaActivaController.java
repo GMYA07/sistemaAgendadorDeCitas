@@ -28,6 +28,8 @@ public class formConsultaActivaController {
     @FXML
     private Button botonFinalizar;
     @FXML
+    private Button botonExpediente;
+    @FXML
     private String citaFinalizar;
     @FXML
     private String pacienteCita;
@@ -76,6 +78,19 @@ public class formConsultaActivaController {
                 // Cerrar el formulario actual
                 Stage actualStage = (Stage) botonRegresar.getScene().getWindow(); // Obtener el Stage actual
                 actualStage.close(); // Cerrar la ventana actual
+
+            } else if (event.getSource() == botonExpediente) {
+                FXMLLoader formViewExp = new FXMLLoader(sistemAgendadorApp.class.getResource("views/DoctorView/tablaVerExpediente.fxml"));
+                Stage nuevoStage = new Stage();
+                Scene form = new Scene(formViewExp.load(),840,551);
+                /*ocuapmos el argumento stage para preparar y ejecutar el form*/
+                nuevoStage.setTitle("Sistema Agendador de Citas");
+                nuevoStage.setResizable(false);
+                nuevoStage.setScene(form);
+                /*esto nos ayudara a mandar el objeto*/
+                tablaVerExpedienteController controller = formViewExp.getController();
+                controller.setLlenarExpediente(this.getPacienteCita());
+                nuevoStage.show();
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
